@@ -1,9 +1,14 @@
 # เรียกใช้งาน pygame
 import pygame
 from pygame.sprite import *
+import random
 
 # เริ่มการทำงานของ pygame
 pygame.init()
+
+# กำหนด game variables
+rows = 5
+cols = 5
 
 # กำหนด FPS
 clock = pygame.time.Clock()
@@ -49,7 +54,9 @@ class Spaceship(pygame.sprite.Sprite):
         # set movement speed
         speed = 8
         # set a cooldown
-        cooldown = 250 #milliseconds
+        cooldown = 250 # milliseconds
+        cooldown_fast = cooldown//3 # milliseconds
+        cooldown_slow = cooldown*4 # milliseconds
 
         # get key press
         key = pygame.key.get_pressed()
@@ -70,6 +77,8 @@ class Spaceship(pygame.sprite.Sprite):
         # cool dowe bullet
         time_now = pygame.time.get_ticks()
         check_cooldown = time_now - self.last_shot > cooldown
+        check_cooldown_flast = time_now - self.last_shot > cooldown_fast
+        check_cooldown_slow = time_now - self.last_shot > cooldown_slow
 
         # shoot
         if (key[pygame.K_1]) and check_cooldown:
@@ -82,6 +91,16 @@ class Spaceship(pygame.sprite.Sprite):
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ระยะการกระจาย, ความเร็วของกระสุน)
                 bullet = Bullets_Ball(self.rect.centerx, self.rect.top, i, 5)
                 bullet_group.add(bullet)
+            self.last_shot = time_now
+        if (key[pygame.K_3]) and check_cooldown_flast:
+            # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
+            bullet = Bullets_Short(self.rect.centerx, self.rect.top, 10)
+            bullet_group.add(bullet)
+            self.last_shot = time_now
+        if (key[pygame.K_4]) and check_cooldown_slow:
+            # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
+            bullet = Bullets_Cannon(self.rect.centerx, self.rect.top, 2)
+            bullet_group.add(bullet)
             self.last_shot = time_now
 
 # สร้าง Bullets class
@@ -114,9 +133,64 @@ class Bullets_Ball(pygame.sprite.Sprite):
         if self.rect.bottom <= 0 or self.rect.left <= 0 or self.rect.right >= SCREEN_W:
             self.kill()
 
+# สร้าง Bullets_Short class
+class Bullets_Short(pygame.sprite.Sprite):
+    def __init__(self, x, y, speed):
+        self.speed = speed
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Laser_Short.png')
+        self.rect = self.image.get_rect()
+        self.rect.center = [x, y]
+
+    def update(self):
+        self.rect.y -= self.speed
+        if self.rect.bottom <= 0:
+            self.kill()
+
+# สร้าง Bullets_Cannon class
+class Bullets_Cannon(pygame.sprite.Sprite):
+    def __init__(self, x, y, speed):
+        self.speed = speed
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Laser_Big.png')
+        self.rect = self.image.get_rect()
+        self.rect.center = [x, y]
+
+    def update(self):
+        self.rect.y -= self.speed
+        if self.rect.bottom <= 0:
+            self.kill()
+
+# สร้าง Enemys class
+class Enemys(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('assets/pixel_ship_blue_small.png')
+        self.rect = self.image.get_rect()
+        self.rect.center = [x, y]
+        self.move_counter = 0
+        self.move_direction = 1
+
+    def update(self):
+        self.rect.x += self.move_direction
+        self.move_counter += 1
+        if abs(self.move_counter) > SCREEN_W:
+            self.move_direction *= -1
+            self.move_counter *= self.move_direction
+
 # สร้าง sprite groups
 spaceship_group = pygame.sprite.Group()
 bullet_group = pygame.sprite.Group()
+enemy_group = pygame.sprite.Group()
+
+def create_enemys():
+    # generate enemys
+    for row in range(rows):
+        for item in range(cols):
+            enemy = Enemys(100 + item * 100, 100 + row * 70)
+            enemy_group.add(enemy)
+
+create_enemys()
 
 # สร้าง player
 spaceship = Spaceship((SCREEN_W//2), SCREEN_H-100, 3)
@@ -140,13 +214,15 @@ def main_game():
 
         # update sprite groups
         bullet_group.update()
+        enemy_group.update()
 
         # draw sprite groups
         spaceship_group.draw(screen)
         bullet_group.draw(screen)
+        enemy_group.draw(screen)
 
         pygame.display.update()
 
-    pygame.quit() # ออกจากเกม
+    pygame.quit() # ออกจากโปรกแกรม
 
 main_game()
