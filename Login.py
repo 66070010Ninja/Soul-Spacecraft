@@ -1,5 +1,5 @@
 # เรียกใช้ module
-import pygame, sys
+import pygame, sys, os
 from pygame.locals import *
 
 # เริ่มใช้ pygame
@@ -21,12 +21,12 @@ clock = pygame.time.Clock()
 fullscreen = True
 
 # แสดงรูปพื้นหลังในหน้าจอ
-bg = pygame.image.load("background-black.png") # ดึงภาพจาก Image มาใช้งาน
-bg = pygame.transform.scale(bg, (monitor_size)) # ปรับขนาดของ bg
+bg = pygame.image.load(os.path.join("assets", "background-black.png"))
+bg = pygame.transform.scale(bg, (monitor_size))
 
 # แสดงรูปปุ่ม
-start_image = pygame.image.load("start_button.jpg").convert_alpha()
-exit_image = pygame.image.load("exit_button.jpg").convert_alpha()
+start_image = pygame.image.load(os.path.join("assets", "start_button.jpg")).convert_alpha()
+exit_image = pygame.image.load(os.path.join("assets", "exit_button.jpg")).convert_alpha()
 
 # เก็บพื้นหลัง
 def draw_bg():
