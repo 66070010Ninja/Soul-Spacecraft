@@ -1,6 +1,7 @@
 # เรียกใช้ module
 import pygame, sys, os
 from pygame.locals import *
+from main import *
 
 # เริ่มใช้ pygame
 pygame.init()
@@ -77,6 +78,7 @@ while True:
 
         if start_button.draw_button():
             print("Start")
+            main_game()
 
         if exit_button.draw_button():
             pygame.quit()

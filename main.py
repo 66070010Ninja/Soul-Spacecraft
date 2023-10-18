@@ -1,14 +1,13 @@
 # เรียกใช้งาน pygame
 import pygame
 from pygame.sprite import *
-import random
 
 # เริ่มการทำงานของ pygame
 pygame.init()
 
 # กำหนด game variables
-rows = 5
-cols = 5
+rows = 4
+cols = 7
 
 # กำหนด FPS
 clock = pygame.time.Clock()
@@ -60,10 +59,6 @@ class Spaceship(pygame.sprite.Sprite):
 
         # get key press
         key = pygame.key.get_pressed()
-        if (key[pygame.K_w] or key[pygame.K_UP]) and self.rect.top >= 0:
-            self.rect.y -= speed
-        if (key[pygame.K_s] or key[pygame.K_DOWN]) and self.rect.bottom <= SCREEN_H:
-            self.rect.y += speed
         if (key[pygame.K_a] or key[pygame.K_LEFT]) and self.rect.left >= 0:
             self.rect.x -= speed
         if (key[pygame.K_d] or key[pygame.K_RIGHT]) and self.rect.right <= SCREEN_W:
@@ -116,6 +111,8 @@ class Bullets(pygame.sprite.Sprite):
         self.rect.y -= self.speed
         if self.rect.bottom <= 0:
             self.kill()
+        if pygame.sprite.spritecollide(self, enemy_group, True):
+            self.kill()
 
 # สร้าง Bullets_Ball class
 class Bullets_Ball(pygame.sprite.Sprite):
@@ -165,18 +162,25 @@ class Bullets_Cannon(pygame.sprite.Sprite):
 class Enemys(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('assets/pixel_ship_blue_small.png')
+        self.image = pygame.image.load('Image/Flameow.png')
+        self.image = pygame.transform.scale(self.image, (80, 80))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
         self.move_direction = 1
+        self.last_time = pygame.time.get_ticks()
+        self.down = 10 * 1000
 
     def update(self):
         self.rect.x += self.move_direction
         self.move_counter += 1
-        if abs(self.move_counter) > SCREEN_W:
+        self.now_time = pygame.time.get_ticks()
+        if abs(self.move_counter) >= self.rect.width//2:
             self.move_direction *= -1
             self.move_counter *= self.move_direction
+        if self.now_time - self.last_time > self.down:
+            self.rect.y += 50
+            self.last_time = pygame.time.get_ticks()
 
 # สร้าง sprite groups
 spaceship_group = pygame.sprite.Group()
@@ -187,7 +191,7 @@ def create_enemys():
     # generate enemys
     for row in range(rows):
         for item in range(cols):
-            enemy = Enemys(100 + item * 100, 100 + row * 70)
+            enemy = Enemys(80 + item * 100,50 + row * 80)
             enemy_group.add(enemy)
 
 create_enemys()
@@ -224,5 +228,4 @@ def main_game():
         pygame.display.update()
 
     pygame.quit() # ออกจากโปรกแกรม
-
 main_game()
