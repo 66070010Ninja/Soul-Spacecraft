@@ -76,11 +76,11 @@ while True:
 
         draw_bg()
 
-        if start_button.draw_button():
+        if start_button.draw_button(): # กดปุ่มเพื่อเริ่มเกม
             print("Start")
             main_game()
 
-        if exit_button.draw_button():
+        if exit_button.draw_button(): # กดปุ่มเพื่อออกเกม
             pygame.quit()
             sys.exit()
 
