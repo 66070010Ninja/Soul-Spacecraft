@@ -22,7 +22,7 @@ class Spaceship(pygame.sprite.Sprite):
     def update(self):
         # set movement speed
         speed = 8
-        
+
         # set a cooldown
         cooldown = 250 # milliseconds
         cooldown_fast = cooldown//3 # milliseconds
@@ -36,9 +36,11 @@ class Spaceship(pygame.sprite.Sprite):
             self.rect.x += speed
 
         # draw health bar
-        pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom + 5), self.rect.width, 10))
         if self.health_remaining > 0:
-            pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom + 5), self.rect.width*(self.health_remaining//self.health_start), 10))
+            pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom + 5), self.rect.width, 10))
+            pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom + 5), self.rect.width*(self.health_remaining/self.health_start), 10))
+        if self.health_remaining == 0:
+            self.kill()
 
         # cool dowe bullet
         time_now = pygame.time.get_ticks()
@@ -50,27 +52,30 @@ class Spaceship(pygame.sprite.Sprite):
         if (key[pygame.K_1]) and check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets(self.rect.centerx, self.rect.top, 5)
-            bu.bullet_group.add(bullet)
+            bu.bullet_01_group.add(bullet)
             self.last_shot = time_now
+
         if (key[pygame.K_2]) and check_cooldown:
             for i in range(-1, 2, 1):
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ระยะการกระจาย, ความเร็วของกระสุน)
                 bullet = bu.Bullets_Ball(self.rect.centerx, self.rect.top, i, 5)
-                bu.bullet_group.add(bullet)
+                bu.bullet_02_group.add(bullet)
             self.last_shot = time_now
+
         if (key[pygame.K_3]) and check_cooldown_flast:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Short(self.rect.centerx, self.rect.top, 10)
-            bu.bullet_group.add(bullet)
+            bu.bullet_03_group.add(bullet)
             self.last_shot = time_now
+
         if (key[pygame.K_4]) and check_cooldown_slow:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Cannon(self.rect.centerx, self.rect.top, 2)
-            bu.bullet_group.add(bullet)
+            bu.bullet_04_group.add(bullet)
             self.last_shot = time_now
 
 spaceship_group = pygame.sprite.Group()
 
 # สร้าง player
-spaceship = Spaceship((b.SCREEN_W//2), b.SCREEN_H-100, 3)
+spaceship = Spaceship((b.SCREEN_W//2), b.SCREEN_H-100, 100)
 spaceship_group.add(spaceship)

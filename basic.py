@@ -27,3 +27,13 @@ bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ป�
 
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
+
+# เช็คปิดโปรแกรม
+start = False
+exit_game = False
+
+# damage
+damage_01 = 30
+damage_02 = 20
+damage_03 = 20
+damage_04 = 0.5

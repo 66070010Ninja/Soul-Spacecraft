@@ -6,7 +6,6 @@ pygame.init()
 
 # import
 import basic as b
-import enemy as e
 import player as p
 
 # สร้าง Bullets class
@@ -16,13 +15,12 @@ class Bullets(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load('Image/Laser.png')
         self.rect = self.image.get_rect()
+        self.last_shot = pygame.time.get_ticks()
         self.rect.center = [x, y]
 
     def update(self):
         self.rect.y -= self.speed
         if self.rect.bottom <= 0:
-            self.kill()
-        if pygame.sprite.spritecollide(self, e.enemy_group, True):
             self.kill()
 
 # สร้าง Bullets_Ball class
@@ -40,8 +38,6 @@ class Bullets_Ball(pygame.sprite.Sprite):
         self.rect.x += self.distance
         if self.rect.bottom <= 0 or self.rect.left <= 0 or self.rect.right >= b.SCREEN_W:
             self.kill()
-        if pygame.sprite.spritecollide(self, e.enemy_group, True):
-            self.kill()
 
 # สร้าง Bullets_Short class
 class Bullets_Short(pygame.sprite.Sprite):
@@ -55,8 +51,6 @@ class Bullets_Short(pygame.sprite.Sprite):
     def update(self):
         self.rect.y -= self.speed
         if self.rect.bottom <= 0:
-            self.kill()
-        if pygame.sprite.spritecollide(self, e.enemy_group, True):
             self.kill()
 
 # สร้าง Bullets_Cannon class
@@ -72,23 +66,27 @@ class Bullets_Cannon(pygame.sprite.Sprite):
         self.rect.y -= self.speed
         if self.rect.bottom <= 0:
             self.kill()
-        if pygame.sprite.spritecollide(self, e.enemy_group, True):
-            pass
 
 # สร้าง Bullets_FireFly
 class Bullets_FireFly(pygame.sprite.Sprite):
     def __init__(self, x, y, speed):
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('/Image/Laser_FireFly.png')
+        self.image = pygame.image.load('Image/Laser_FireFly.png')
+        self.image = pygame.transform.scale(self.image, (6, 6))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
-    
+
     def update(self):
         self.rect.y += self.speed
-        if self.rect.bottom <= b.SCREEN_H:
+        if self.rect.top > b.SCREEN_H:
             self.kill()
-        if pygame.sprite.spritecollide(self, p.spaceship_group, True):
-            pass
+        if pygame.sprite.spritecollide(self, p.spaceship_group, False):
+            self.kill()
+            p.spaceship.health_remaining -= 10
 
-bullet_group = pygame.sprite.Group()
+bullet_01_group = pygame.sprite.Group()
+bullet_02_group = pygame.sprite.Group()
+bullet_03_group = pygame.sprite.Group()
+bullet_04_group = pygame.sprite.Group()
+bullet_enemy_group = pygame.sprite.Group()
