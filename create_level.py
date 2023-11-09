@@ -11,6 +11,12 @@ import random
 def level_game():
     if b.level_game <= 10:
         return 3, 7
+    elif b.level_game <= 20:
+        return 4, 7
+    elif b.level_game <= 30:
+        return 5, 7
+    else:
+        return 6, 7
 
 def create_enemys_01(rows, cols, health):
     # generate enemys

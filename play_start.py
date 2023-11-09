@@ -9,6 +9,7 @@ import player as p
 import bullet as bu
 import enemy as e
 import create_level as cl
+import pause_game as pg
 import random
 
 def start_game():
@@ -34,7 +35,7 @@ def start_game():
                 b.exit_game = True
                 play_running = False # หยุดการวนลูป while
             if key[pygame.K_ESCAPE]:
-                return
+                pg.pause_game()
             if b.enemy_game == 0:
                 b.level_game += 1
                 b.start = False
