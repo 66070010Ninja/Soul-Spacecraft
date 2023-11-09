@@ -6,6 +6,7 @@ pygame.init()
 # import file
 import database as b
 import play_start as ps
+import button as bt
 
 # กำหนดข้อความที่ Titlebar
 pygame.display.set_caption('Space Of Arcana')
