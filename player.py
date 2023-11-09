@@ -4,7 +4,7 @@ from pygame.sprite import *
 pygame.init()
 
 # import
-import basic as b
+import database as b
 import bullet as bu
 
 # สร้าง Spachip class

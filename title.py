@@ -4,7 +4,10 @@ from pygame.sprite import *
 pygame.init()
 
 # import file
-import basic as b
+import os
+import sys
+import database as b
+sys.path.append('level_game')
 import z_level_01 as level_01
 
 # กำหนดข้อความที่ Titlebar

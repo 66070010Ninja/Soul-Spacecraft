@@ -3,9 +3,12 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
-import basic as b
+import os
+import sys
+import database as b
 import random
 import bullet as bu
+sys.path.append('level_game')
 import z_level_01 as level_01
 
 # สร้าง Enemys_Flameow class

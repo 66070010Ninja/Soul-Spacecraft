@@ -5,7 +5,9 @@ from pygame.sprite import *
 pygame.init()
 
 # import
-import basic as b
+import os
+import sys
+import database as b
 import player as p
 
 # สร้าง Bullets class
