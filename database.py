@@ -22,7 +22,7 @@ FPS = 60
 screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 
 # แสดงรูปพื้นหลังในหน้าจอ
-bg_game_play = pygame.image.load("Image/background-black.png") # ดึงภาพจาก Image มาใช้งาน
+bg_game_play = pygame.image.load("Image/Game/background-black.png") # ดึงภาพจาก Image มาใช้งาน
 bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ปรับขนาดของ bg
 
 def draw_bg_game_play():

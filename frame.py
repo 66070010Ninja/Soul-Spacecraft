@@ -11,26 +11,26 @@ width, height = 750, 750
 windows = pygame.display.set_mode((width, height))
 
 # ตั้งชื่อ caption_display
-pygame.display.set_caption('Soul-Spacecraft')
+pygame.display.set_caption('Space of Arcana')
 
 # ดึงรูปภาพจากไฟล์ เพื่อนำมาใช้งาน (โดยที่นี้จะทดสอบโดย โหลดไฟล์จาก Flie Foloder ที่มีชื่อว่า assets เพื่อลองทำการดึงภาพมาใช้งาน)
 
 # space_ship ฝั่งศัตรู
-red_space_ship = pygame.image.load(os.path.join('assets', 'pixel_ship_red_small.png'))
-green_space_ship = pygame.image.load(os.path.join('assets', 'pixel_ship_green_small.png'))
-blue_space_ship = pygame.image.load(os.path.join('assets', 'pixel_ship_blue_small.png'))
+red_space_ship = pygame.image.load(os.path.join('Image/Ship/pixel_ship_red_small.png'))
+green_space_ship = pygame.image.load(os.path.join('Image/Ship/pixel_ship_green_small.png'))
+blue_space_ship = pygame.image.load(os.path.join('Image/Ship/pixel_ship_blue_small.png'))
 
 # space_ship_player
-yellow_space_ship = pygame.image.load(os.path.join('assets', 'pixel_ship_yellow.png'))
+yellow_space_ship = pygame.image.load(os.path.join('Image/Ship/pixel_ship_yellow.png'))
 
 # Lasers
-red_laser = pygame.image.load(os.path.join('assets', 'pixel_laser_red.png'))
-green_laser = pygame.image.load(os.path.join('assets', 'pixel_laser_green.png'))
-blue_laser = pygame.image.load(os.path.join('assets', 'pixel_laser_blue.png'))
-yellow_laser = pygame.image.load(os.path.join('assets', 'pixel_laser_yellow.png'))
+red_laser = pygame.image.load(os.path.join('Image/Laser/pixel_laser_red.png'))
+green_laser = pygame.image.load(os.path.join('Image/Laser/pixel_laser_green.png'))
+blue_laser = pygame.image.load(os.path.join('Image/Laser/pixel_laser_blue.png'))
+yellow_laser = pygame.image.load(os.path.join('Image/Laser/pixel_laser_yellow.png'))
 
 # Background (เรียกใช้ background-black.png และปรับขนาด ให้เท่ากับ width, height)
-background = pygame.transform.scale(pygame.image.load(os.path.join('assets', 'background-black.png')), (width, height))
+background = pygame.transform.scale(pygame.image.load(os.path.join('Image/Game/background-black.png')), (width, height))
 
 # กำหนดลักษณะ laser
 class laser:

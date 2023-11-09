@@ -12,7 +12,7 @@ class Bullets(pygame.sprite.Sprite):
     def __init__(self, x, y, speed):
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Laser.png')
+        self.image = pygame.image.load('Image/Laser/Laser.png')
         self.rect = self.image.get_rect()
         self.last_shot = pygame.time.get_ticks()
         self.rect.center = [x, y]
@@ -28,7 +28,7 @@ class Bullets_Ball(pygame.sprite.Sprite):
         self.distance = distance
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Laser_Ball.png')
+        self.image = pygame.image.load('Image/Laser/Laser_Ball.png')
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
 
@@ -43,7 +43,7 @@ class Bullets_Short(pygame.sprite.Sprite):
     def __init__(self, x, y, speed):
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Laser_Short.png')
+        self.image = pygame.image.load('Image/Laser/Laser_Short.png')
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
 
@@ -57,7 +57,7 @@ class Bullets_Cannon(pygame.sprite.Sprite):
     def __init__(self, x, y, speed):
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Laser_Big.png')
+        self.image = pygame.image.load('Image/Laser/Laser_Big.png')
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
 
@@ -71,7 +71,7 @@ class Bullets_FireFly(pygame.sprite.Sprite):
     def __init__(self, x, y, speed):
         self.speed = speed
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Laser_FireFly.png')
+        self.image = pygame.image.load('Image/Laser/Laser_FireFly.png')
         self.image = pygame.transform.scale(self.image, (6, 6))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]

@@ -22,12 +22,12 @@ clock = pygame.time.Clock()
 fullscreen = True
 
 # แสดงรูปพื้นหลังในหน้าจอ
-bg = pygame.image.load(os.path.join("assets", "background-black.png"))
+bg = pygame.image.load(os.path.join("Image/Game/background-black.png"))
 bg = pygame.transform.scale(bg, (monitor_size))
 
 # แสดงรูปปุ่ม
-start_image = pygame.image.load(os.path.join("assets", "start_button.jpg")).convert_alpha()
-exit_image = pygame.image.load(os.path.join("assets", "exit_button.jpg")).convert_alpha()
+start_image = pygame.image.load(os.path.join("Image/Game/start_button.jpg")).convert_alpha()
+exit_image = pygame.image.load(os.path.join("Image/Game/exit_button.jpg")).convert_alpha()
 
 # เก็บพื้นหลัง
 def draw_bg():

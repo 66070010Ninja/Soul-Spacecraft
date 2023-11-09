@@ -10,7 +10,7 @@ import bullet as bu
 class Enemys_Flameow(pygame.sprite.Sprite):
     def __init__(self, x, y, health):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/Flameow.png')
+        self.image = pygame.image.load('Image/Enemy/Flameow.png')
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
@@ -54,7 +54,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
 class Enemys_FireFly(pygame.sprite.Sprite):
     def __init__(self, x, y, health, second):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Image/FireFly.png')
+        self.image = pygame.image.load('Image/Enemy/FireFly.png')
         self.image = pygame.transform.scale(self.image, (70, 50))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
