@@ -11,11 +11,12 @@ import enemy as e
 import create_level as cl
 import pause_game as pg
 import random
+import choose_a_card as ca
 
 def start_game():
     if b.start == False:
         rows, cols = cl.level_game()
-        health = (random.randint(10, 26))*10
+        health = (random.randint(10, 10))*10
         b.enemy_game = rows*cols
         design = random.randint(1, 2)
         if design == 1:
@@ -39,6 +40,8 @@ def start_game():
             if b.enemy_game == 0:
                 b.level_game += 1
                 b.start = False
+                b.use_card = ca.choose_card()
+                print(b.use_card)
                 start_game()
 
         # update spaceship

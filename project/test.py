@@ -39,7 +39,6 @@ card_list_nomal = [
     ("NO", pygame.image.load("project/card/NO.png"), 15),
     ("SUP", pygame.image.load("project/card/SPD UP BUL.png"), 5),
     ("SU", pygame.image.load("project/card/SPD UP.png"), 5),
-    
 ]
 
 card_list_luck = [
@@ -59,7 +58,7 @@ card_list_bad = [
     ("HB", pygame.image.load("project/card/HB.png"), 20),
     ("SUP", pygame.image.load("project/card/SPD UP BUL.png"), 10),
     ("SU", pygame.image.load("project/card/SPD UP.png"), 10),
-    ]
+]
 # ตัวแปรสำหรับเลือกลิสต์การ์ด
 current_card_list = card_list_1
 

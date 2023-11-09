@@ -56,26 +56,26 @@ class Spaceship(pygame.sprite.Sprite):
         check_cooldown_slow = time_now - self.last_shot > cooldown_slow
 
         # shoot
-        if (key[pygame.K_1]) and check_cooldown:
+        if b.use_card == 'BBASE' and check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets(self.rect.centerx, self.rect.top, 5)
             bu.bullet_01_group.add(bullet)
             self.last_shot = time_now
 
-        if (key[pygame.K_2]) and check_cooldown:
+        if b.use_card == 'BSPA' and check_cooldown:
             for i in range(-1, 2, 1):
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ระยะการกระจาย, ความเร็วของกระสุน)
                 bullet = bu.Bullets_Ball(self.rect.centerx, self.rect.top, i, 5)
                 bu.bullet_02_group.add(bullet)
             self.last_shot = time_now
 
-        if (key[pygame.K_3]) and check_cooldown_flast:
+        if b.use_card == 'BGAT' and check_cooldown_flast:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Short(self.rect.centerx, self.rect.top, 10)
             bu.bullet_03_group.add(bullet)
             self.last_shot = time_now
 
-        if (key[pygame.K_4]) and check_cooldown_slow:
+        if b.use_card == 'BBIG' and check_cooldown_slow:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Cannon(self.rect.centerx, self.rect.top, 2)
             bu.bullet_04_group.add(bullet)

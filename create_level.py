@@ -30,7 +30,6 @@ def create_enemy_02(rows, cols, health):
     for row in range(rows):
         for item in range(cols):
             num = random.randint(1, 2)
-            print(num)
             if num == 1:
                 enemy = e.Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
             elif num == 2:
