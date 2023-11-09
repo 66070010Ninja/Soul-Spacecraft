@@ -13,15 +13,13 @@ import random
 
 def start_game():
     if b.start == False:
-        rows, cols = random.randint(3, 5), 7
+        rows, cols = cl.level_game()
         health = (random.randint(10, 26))*10
         b.enemy_game = rows*cols
-        print(b.enemy_game)
-        desine = random.randint(1, 2)
-        print(desine)
-        if desine == 1:
+        design = random.randint(1, 2)
+        if design == 1:
             cl.create_enemys_01(rows, cols, health)
-        if desine == 2:
+        if design == 2:
             cl.create_enemy_02(rows, cols, health)
         b.start = True
     play_running = True
@@ -38,6 +36,7 @@ def start_game():
             if key[pygame.K_ESCAPE]:
                 return
             if b.enemy_game == 0:
+                b.level_game += 1
                 b.start = False
                 start_game()
 

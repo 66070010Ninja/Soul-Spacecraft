@@ -41,3 +41,5 @@ damage_04 = 0.5
 
 damage_enemy = 20
 damage_enemy_boom = 50
+
+level_game = 0

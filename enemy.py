@@ -25,7 +25,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         self.rect.x += self.move_direction
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
-        if abs(self.move_counter) >= self.rect.width//2: # เคลื่อนย้ายซ้าย-ขวา
+        if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
             self.move_direction *= -1
             self.move_counter *= self.move_direction
         if self.now_time - self.last_time > self.down: # ตกลงมา
@@ -71,7 +71,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.rect.x += self.move_direction
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
-        if abs(self.move_counter) >= self.rect.width//2: # เคลื่อนย้ายซ้าย-ขวา
+        if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
             self.move_direction *= -1
             self.move_counter *= self.move_direction
         if self.now_time - self.last_time > self.down: # ตกลงมา
