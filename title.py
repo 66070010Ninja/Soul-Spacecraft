@@ -8,7 +8,11 @@ import os
 import sys
 import database as b
 sys.path.append('level_game')
-import z_level_01 as level_01
+import level_01
+import level_02
+import level_03
+import level_04
+import level_05
 
 # กำหนดข้อความที่ Titlebar
 pygame.display.set_caption('Space Of Arcana')
@@ -20,7 +24,7 @@ def title():
         if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
             b.exit_game = True # หยุดการวนลูป while
         if key[pygame.K_KP_ENTER]:
-            level_01.game_level_01()
+            level_05.game_level_05()
     if b.exit_game == True:
         return False
     pygame.display.update()

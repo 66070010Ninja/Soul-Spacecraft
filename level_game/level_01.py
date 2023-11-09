@@ -10,7 +10,7 @@ import database as b
 import player as p
 import bullet as bu
 import enemy as e
-import z_level_02 as level_02
+import level_02
 
 rows, cols = 3, 7
 health = 100

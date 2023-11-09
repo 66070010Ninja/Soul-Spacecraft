@@ -9,7 +9,7 @@ import database as b
 import random
 import bullet as bu
 sys.path.append('level_game')
-import z_level_01 as level_01
+import level_01 as level_01
 
 # สร้าง Enemys_Flameow class
 class Enemys_Flameow(pygame.sprite.Sprite):
@@ -119,8 +119,6 @@ def create_enemys_01(rows, cols, health):
     for row in range(rows):
         for item in range(cols):
             enemy = Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
-            # elif num == 2:
-            #     enemy = Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 6))
             enemy_group.add(enemy)
 
 def create_enemy_02(rows, cols, health):

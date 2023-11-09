@@ -4,12 +4,13 @@ from pygame.sprite import *
 pygame.init()
 
 # import
-import sys
 import os
+import sys
 import database as b
 import player as p
 import bullet as bu
 import enemy as e
+import level_03
 
 rows, cols = 4, 7
 health = 100
@@ -32,9 +33,12 @@ def game_level_02():
             if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
                 b.exit_game = True
                 play_running = False # หยุดการวนลูป while
-            if key[pygame.K_ESCAPE] or enemy_game == 0:
-                b.start = False
+            if key[pygame.K_ESCAPE]:
                 return
+
+        if enemy_game == 0:
+            b.start = False
+            level_03.game_level_03()
 
         # update spaceship
         p.spaceship.update()
