@@ -83,9 +83,6 @@ class Bullets_FireFly(pygame.sprite.Sprite):
         self.rect.y += self.speed
         if self.rect.top > b.SCREEN_H:
             self.kill()
-        if pygame.sprite.spritecollide(self, p.spaceship_group, False):
-            self.kill()
-            p.spaceship.health_remaining -= 10
 
 bullet_01_group = pygame.sprite.Group()
 bullet_02_group = pygame.sprite.Group()

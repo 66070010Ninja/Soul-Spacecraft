@@ -4,8 +4,8 @@ from pygame.sprite import *
 pygame.init()
 
 # ขนาดหน้าจอ
-SCREEN_W = 750
-SCREEN_H = 750
+SCREEN_W = 800
+SCREEN_H = 800
 
 # ตั้งค่าสี (RGB)
 WHITE = (255, 255, 255)
@@ -31,9 +31,13 @@ def draw_bg_game_play():
 # เช็คปิดโปรแกรม
 start = False
 exit_game = False
+enemy_game = 0
 
 # damage
 damage_01 = 30
 damage_02 = 20
 damage_03 = 20
 damage_04 = 0.5
+
+damage_enemy = 20
+damage_enemy_boom = 50

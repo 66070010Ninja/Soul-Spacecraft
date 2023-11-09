@@ -8,8 +8,6 @@ import sys
 import database as b
 import random
 import bullet as bu
-sys.path.append('level_game')
-import level_01 as level_01
 
 # สร้าง Enemys_Flameow class
 class Enemys_Flameow(pygame.sprite.Sprite):
@@ -34,7 +32,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
             self.move_direction *= -1
             self.move_counter *= self.move_direction
         if self.now_time - self.last_time > self.down: # ตกลงมา
-            self.rect.y += 50
+            self.rect.y += 80
             self.last_time = pygame.time.get_ticks()
 
         # draw health bar
@@ -42,10 +40,10 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
         if self.health_remaining <= 0:
-            level_01.enemy_game -= 1
+            b.enemy_game -= 1
             self.kill()
 
-                # hit damage
+        # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_01_group, True):
             self.health_remaining -= b.damage_01
         if pygame.sprite.spritecollide(self, bu.bullet_02_group, True):
@@ -80,7 +78,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
             self.move_direction *= -1
             self.move_counter *= self.move_direction
         if self.now_time - self.last_time > self.down: # ตกลงมา
-            self.rect.y += 50
+            self.rect.y += 80
             self.last_time = pygame.time.get_ticks()
 
         # set a cooldown
@@ -98,8 +96,8 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom - 3), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
-        if self.health_remaining <= 0:
-            level_01.enemy_game -= 1
+        if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
+            b.enemy_game -= 1
             self.kill()
 
         # hit damage

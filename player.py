@@ -6,13 +6,14 @@ pygame.init()
 # import
 import database as b
 import bullet as bu
+import enemy as e
 
 # สร้าง Spachip class
 class Spaceship(pygame.sprite.Sprite):
     def __init__(self, x, y, health):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load('Image/Protagonist Ship.png')
-        self.image = pygame.transform.scale(self.image, (80, 80))
+        self.image = pygame.transform.scale(self.image, (70, 70))
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.last_shot = pygame.time.get_ticks()
@@ -39,8 +40,14 @@ class Spaceship(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom + 5), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom + 5), self.rect.width*(self.health_remaining/self.health_start), 10))
-        if self.health_remaining == 0:
+        if self.health_remaining <= 0:
             self.kill()
+
+        # hit damage
+        if pygame.sprite.spritecollide(self, bu.bullet_enemy_group, True):
+            self.health_remaining -= b.damage_enemy
+        if pygame.sprite.spritecollide(self, e.enemy_group, True):
+            self.health_remaining -= b.damage_enemy_boom
 
         # cool dowe bullet
         time_now = pygame.time.get_ticks()
