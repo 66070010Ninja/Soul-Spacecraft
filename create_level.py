@@ -4,9 +4,6 @@ from pygame.sprite import *
 pygame.init()
 
 # import
-import database as b
-import player as p
-import bullet as bu
 import enemy as e
 import random
 

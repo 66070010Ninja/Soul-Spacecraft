@@ -3,10 +3,7 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
-import os
-import sys
 import database as b
-import random
 import bullet as bu
 
 # สร้าง Enemys_Flameow class
@@ -111,21 +108,3 @@ class Enemys_FireFly(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_04
 
 enemy_group = pygame.sprite.Group()
-
-def create_enemys_01(rows, cols, health):
-    # generate enemys
-    for row in range(rows):
-        for item in range(cols):
-            enemy = Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
-            enemy_group.add(enemy)
-
-def create_enemy_02(rows, cols, health):
-    # generate enemys
-    for row in range(rows):
-        for item in range(cols):
-            num = random.randint(1, 3)
-            if num == 1:
-                enemy = Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
-            elif num == 2:
-                enemy = Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 6))
-            enemy_group.add(enemy)

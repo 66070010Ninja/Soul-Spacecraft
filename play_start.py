@@ -13,7 +13,7 @@ import random
 
 def start_game():
     if b.start == False:
-        rows, cols = random.randint(3, 6), 7
+        rows, cols = random.randint(3, 5), 7
         health = (random.randint(10, 26))*10
         b.enemy_game = rows*cols
         print(b.enemy_game)

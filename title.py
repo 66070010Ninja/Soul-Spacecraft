@@ -4,8 +4,6 @@ from pygame.sprite import *
 pygame.init()
 
 # import file
-import os
-import sys
 import database as b
 import play_start as ps
 
