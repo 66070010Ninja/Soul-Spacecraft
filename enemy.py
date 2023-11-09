@@ -44,7 +44,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         if self.health_remaining <= 0:
             level_01.enemy_game -= 1
             self.kill()
-        
+
                 # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_01_group, True):
             self.health_remaining -= b.damage_01
@@ -101,7 +101,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         if self.health_remaining <= 0:
             level_01.enemy_game -= 1
             self.kill()
-        
+
         # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_01_group, True):
             self.health_remaining -= b.damage_01
