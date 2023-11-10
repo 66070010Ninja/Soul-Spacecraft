@@ -46,7 +46,6 @@ def start_game():
             b.start = False
             b.level_game += 1
             b.use_card = ca.choose_card()
-            print(b.use_card)
             next_level()
 
         # update spaceship
@@ -58,6 +57,7 @@ def start_game():
         bu.bullet_03_group.update()
         bu.bullet_04_group.update()
         bu.bullet_enemy_group.update()
+        bu.bullet_enemy_01_group.update()
         e.enemy_group.update()
 
         # draw sprite groups
@@ -67,6 +67,7 @@ def start_game():
         bu.bullet_03_group.draw(b.screen)
         bu.bullet_04_group.draw(b.screen)
         bu.bullet_enemy_group.draw(b.screen)
+        bu.bullet_enemy_01_group.draw(b.screen)
         e.enemy_group.draw(b.screen)
 
         # update display

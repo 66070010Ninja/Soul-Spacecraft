@@ -73,3 +73,4 @@ def turn_up():
         print(b.turn_cool_down_enemy)
     if b.turn_size_player == 0:
         b.size_player = 'normal'
+    b.restore_blood += 15
