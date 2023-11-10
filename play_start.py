@@ -15,8 +15,7 @@ import choose_a_card as ca
 
 def start_game():
     if b.start == False:
-        rows, cols = cl.level_game()
-        health = (random.randint(10, 10))*10
+        rows, cols, health= cl.level_game()
         b.enemy_game = rows*cols
         design = random.randint(1, 2)
         if design == 1:
@@ -38,18 +37,7 @@ def start_game():
             if key[pygame.K_ESCAPE]:
                 pg.pause_game()
         if b.enemy_game == 0:
-            if b.turn_size_player != 0:
-                b.turn_size_player -= 1
-            if b.turn_barrier != 0:
-                b.turn_barrier -= 1
-            if b.turn_cool_down_atk != 0:
-                b.turn_cool_down_atk -= 1
-            if b.turn_speed_move_enemy != 0:
-                b.turn_speed_move_enemy -= 1
-            if b.turn_speed_enemy != 0:
-                b.turn_speed_enemy -= 1
-            if b.turn_cool_down_enemy != 0:
-                b.turn_cool_down_enemy -= 1
+            cl.turn_up()
             b.start = False
             b.level_game += 1
             b.use_card = ca.choose_card()

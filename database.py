@@ -53,19 +53,18 @@ damage_enemy_boom = 50
 
 level_game = 0
 
-type_bullet = 3
-restore_blood = 0
-
-size_player = 'normal'
-turn_size_player = 0
-
-barrier = False
-turn_barrier = 0
-
-turn_cool_down_atk = 0
-
 use_card = ''
 
-turn_speed_enemy = 0
+# player
+type_bullet = 3
+restore_blood = 0
+size_player = 'normal'
+turn_size_player = 0
+turn_barrier = 0
+turn_cool_down_atk = 0
+
+# enemy
+turn_cool_up_enemy = 0
 turn_cool_down_enemy = 0
-turn_speed_move_enemy = 0
+turn_speed_move_up_enemy = 0
+turn_speed_move_down_enemy = 0

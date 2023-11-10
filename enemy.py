@@ -16,14 +16,15 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
-        self.move_direction = 1
+        self.move_direction = 1*(1 + (b.turn_speed_move_up_enemy > 0))
+        self.move_direction /= 1 + (b.turn_cool_down_enemy > 0)
         self.last_time = pygame.time.get_ticks()
         self.down = 10 * 1000
         self.health_start = health
         self.health_remaining = health
 
     def update(self):
-        self.rect.x += self.move_direction*(1 + (b.turn_speed_move_enemy > 0))
+        self.rect.x += self.move_direction
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
         if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
@@ -51,7 +52,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
 
-# Enemy_FireFly class
+# สร้าง Enemy_FireFly class
 class Enemys_FireFly(pygame.sprite.Sprite):
     def __init__(self, x, y, health, second):
         pygame.sprite.Sprite.__init__(self)
@@ -60,7 +61,8 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
-        self.move_direction = 1
+        self.move_direction = 1*(1 + (b.turn_speed_move_up_enemy > 0))
+        self.move_direction /= 1 + (b.turn_cool_down_enemy > 0)
         self.last_time = pygame.time.get_ticks()
         self.down = 10 * 1000
         self.health_start = health
@@ -69,7 +71,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.second = second
 
     def update(self):
-        self.rect.x += self.move_direction*(1 + (b.turn_speed_move_enemy > 0))
+        self.rect.x += self.move_direction
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
         if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
@@ -83,10 +85,9 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         cooldown = self.second*1000 # milliseconds
         time_now = pygame.time.get_ticks()
         check_cooldown = time_now - self.last_shot > cooldown
-
         if check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
-            bullet = bu.Bullets_FireFly(self.rect.centerx, self.rect.bottom, 3)
+            bullet = bu.Bullets_FireFly(self.rect.centerx, self.rect.bottom, 3*(1+(2*b.turn_cool_up_enemy > 0)))
             bu.bullet_enemy_group.add(bullet)
             self.last_shot = time_now
 
