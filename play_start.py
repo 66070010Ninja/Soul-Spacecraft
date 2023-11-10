@@ -44,6 +44,12 @@ def start_game():
                 b.turn_barrier -= 1
             if b.turn_cool_down_atk != 0:
                 b.turn_cool_down_atk -= 1
+            if b.turn_speed_move_enemy != 0:
+                b.turn_speed_move_enemy -= 1
+            if b.turn_speed_enemy != 0:
+                b.turn_speed_enemy -= 1
+            if b.turn_cool_down_enemy != 0:
+                b.turn_cool_down_enemy -= 1
             b.start = False
             b.level_game += 1
             b.use_card = ca.choose_card()

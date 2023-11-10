@@ -33,5 +33,5 @@ def create_enemy_02(rows, cols, health):
             if num == 1:
                 enemy = e.Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
             elif num == 2:
-                enemy = e.Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 9))
+                enemy = e.Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             e.enemy_group.add(enemy)

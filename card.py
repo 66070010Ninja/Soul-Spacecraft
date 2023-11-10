@@ -3,6 +3,8 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
+import database as b
+
 # สร้างลิสต์ของการ์ด (รูปภาพการ์ด) และความถี่เป็นเปอร์เซ็นต์
 card_list_1 = [
     ("Card 1", pygame.image.load("Image/Card frame/nomal.png"), 70),  # 50% ความถี่
@@ -49,3 +51,38 @@ card_list_bad = [
     ("SUP", pygame.image.load("Image/Card png/SPD UP BUL.png"), 10),
     ("SU", pygame.image.load("Image/Card png/SPD UP.png"), 10),
 ]
+
+def usd_card():
+    if b.use_card == 'BBASE':
+        b.type_bullet = 1
+    elif b.use_card == 'BBIG':
+        b.type_bullet = 4
+    elif b.use_card == 'BGAT':
+        b.type_bullet = 3
+    elif b.use_card == 'BSPA':
+        b.type_bullet = 2
+    elif b.use_card == 'HH':
+        b.restore_blood += 30
+    elif b.use_card == 'sma':
+        b.size_player = 'small'
+        b.turn_size_player = 3
+    elif b.use_card == 'BIGS':
+        b.size_player = 'big'
+        b.turn_size_player = 3
+    elif b.use_card == 'skip':
+        b.level_game += 1
+    elif b.use_card == 'BR':
+        b.barrier = True
+        b.turn_barrier = 2
+    elif b.use_card == 'HB':
+        b.restore_blood -= 30
+    elif b.use_card == 'L2':
+        b.turn_cool_down_atk = 1
+    elif b.use_card == 'NO':
+        pass
+    elif b.use_card == 'SPD UP BUL':
+        b.turn_speed_enemy += 2
+    elif b.use_card == 'but down spd':
+        b.turn_cool_down_enemy += 1
+    elif b.use_card == 'SPD UP':
+        b.turn_speed_move_enemy += 2

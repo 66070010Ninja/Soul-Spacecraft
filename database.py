@@ -67,3 +67,5 @@ turn_cool_down_atk = 0
 use_card = ''
 
 turn_speed_enemy = 0
+turn_cool_down_enemy = 0
+turn_speed_move_enemy = 0

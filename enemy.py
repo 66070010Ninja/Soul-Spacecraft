@@ -23,7 +23,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         self.health_remaining = health
 
     def update(self):
-        self.rect.x += self.move_direction
+        self.rect.x += self.move_direction*(1 + (b.turn_speed_move_enemy > 0))
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
         if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
@@ -69,7 +69,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.second = second
 
     def update(self):
-        self.rect.x += self.move_direction
+        self.rect.x += self.move_direction*(1 + (b.turn_speed_move_enemy > 0))
         self.move_counter += 1
         self.now_time = pygame.time.get_ticks()
         if abs(self.move_counter) >= self.rect.width/2: # เคลื่อนย้ายซ้าย-ขวา
