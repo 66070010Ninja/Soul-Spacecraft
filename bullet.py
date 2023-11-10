@@ -92,11 +92,9 @@ class Bullets_Flame_Boy(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y += self.speed
-        if (self.rect.top > b.SCREEN_H) or (b.start == False):
-            self.kill()
-        if self.rect.x > b.player_x or self.rect.y >= b.SCREEN_H/2:
+        if self.rect.x > b.player_x and self.rect.y < b.SCREEN_H/2:
             self.rect.x -= self.speed/2
-        elif self.rect.x < b.player_x or self.rect.y >= b.SCREEN_H/2:
+        elif self.rect.x < b.player_x and self.rect.y < b.SCREEN_H/2:
             self.rect.x += self.speed/2
         if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()

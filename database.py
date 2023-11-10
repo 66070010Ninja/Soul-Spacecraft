@@ -65,7 +65,7 @@ level_game = 0
 use_card = ''
 
 # player
-type_bullet = 4
+type_bullet = 1
 restore_blood = 0
 size_player = 'normal'
 turn_size_player = 0
