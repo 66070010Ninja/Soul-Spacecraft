@@ -5,7 +5,6 @@ pygame.init()
 
 # import file
 import database as b
-import play_start as ps
 import start as s
 
 # กำหนดข้อความที่ Titlebar
