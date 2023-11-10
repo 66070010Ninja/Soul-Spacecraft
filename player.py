@@ -43,7 +43,8 @@ class Spaceship(pygame.sprite.Sprite):
             self.rect.centery = b.SCREEN_H-100
             b.speed_player = 6
             b.size_player = ''
-
+        b.player_x = self.rect.centerx
+        b.player_y = self.rect.centery
         # set a cooldown
         cooldown = 250 # milliseconds
         cooldown_fast = cooldown//3 # milliseconds
@@ -71,6 +72,8 @@ class Spaceship(pygame.sprite.Sprite):
         # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_enemy_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy
+        if pygame.sprite.spritecollide(self, bu.bullet_enemy_01_group, True) and b.turn_barrier == 0:
+            self.health_remaining -= b.damage_enemy_01
         if pygame.sprite.spritecollide(self, e.enemy_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy_boom
             b.enemy_game -= 1

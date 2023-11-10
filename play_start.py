@@ -17,11 +17,13 @@ def next_level():
     if b.start == False:
         rows, cols, health= cl.level_game()
         b.enemy_game = rows*cols
-        design = random.randint(1, 2)
+        design = random.randint(1, 3)
         if design == 1:
             cl.create_enemys_01(rows, cols, health)
-        if design == 2:
+        elif design == 2:
             cl.create_enemy_02(rows, cols, health)
+        elif design == 3:
+            cl.create_ennemys_03(rows, cols, health)
         b.start = True
 
 def start_game():

@@ -57,6 +57,7 @@ damage_04 = 1.3
 speed_player = 8
 
 damage_enemy = 20
+damage_enemy_01 = 10
 damage_enemy_boom = 50
 
 level_game = 0
@@ -76,3 +77,7 @@ turn_cool_up_enemy = 0
 turn_cool_down_enemy = 0
 turn_speed_move_up_enemy = 0
 turn_speed_move_down_enemy = 0
+
+# ตำแหน่ง player
+player_x = 0
+player_y = 0

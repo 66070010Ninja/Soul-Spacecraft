@@ -80,8 +80,30 @@ class Bullets_FireFly(pygame.sprite.Sprite):
         if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()
 
+# สร้าง Bullets_Flame_Boy
+class Bullets_Flame_Boy(pygame.sprite.Sprite):
+    def __init__(self, x, y, speed):
+        self.speed = speed
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Laser/Laser_Flame Boy.png')
+        self.image = pygame.transform.scale(self.image, (6, 6))
+        self.rect = self.image.get_rect()
+        self.rect.center = [x, y]
+
+    def update(self):
+        self.rect.y += self.speed
+        if (self.rect.top > b.SCREEN_H) or (b.start == False):
+            self.kill()
+        if self.rect.x > b.player_x or self.rect.y >= b.SCREEN_H/2:
+            self.rect.x -= self.speed/2
+        elif self.rect.x < b.player_x or self.rect.y >= b.SCREEN_H/2:
+            self.rect.x += self.speed/2
+        if (self.rect.top > b.SCREEN_H) or (b.start == False):
+            self.kill()
+
 bullet_01_group = pygame.sprite.Group()
 bullet_02_group = pygame.sprite.Group()
 bullet_03_group = pygame.sprite.Group()
 bullet_04_group = pygame.sprite.Group()
 bullet_enemy_group = pygame.sprite.Group()
+bullet_enemy_01_group = pygame.sprite.Group()
