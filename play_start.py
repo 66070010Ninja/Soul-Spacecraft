@@ -13,7 +13,7 @@ import pause_game as pg
 import random
 import choose_a_card as ca
 
-def start_game():
+def next_level():
     if b.start == False:
         rows, cols, health= cl.level_game()
         b.enemy_game = rows*cols
@@ -23,6 +23,9 @@ def start_game():
         if design == 2:
             cl.create_enemy_02(rows, cols, health)
         b.start = True
+
+def start_game():
+    next_level()
     play_running = True
     while play_running == True:
         b.clock.tick(b.FPS)
@@ -31,7 +34,7 @@ def start_game():
         b.draw_bg_game_play()
         key = pygame.key.get_pressed()
         for event in pygame.event.get(): # ตวรจสอบ event ระหว่างรันเกม
-            if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
+            if event.type == pygame.QUIT or b.exit_game == True: # ถ้าเกิด event ปิดหน้าจอเกม
                 b.exit_game = True
                 play_running = False # หยุดการวนลูป while
             if key[pygame.K_ESCAPE]:
@@ -42,7 +45,7 @@ def start_game():
             b.level_game += 1
             b.use_card = ca.choose_card()
             print(b.use_card)
-            start_game()
+            next_level()
 
         # update spaceship
         p.spaceship.update()

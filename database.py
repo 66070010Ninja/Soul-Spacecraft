@@ -52,7 +52,7 @@ enemy_game = 0
 damage_01 = 40
 damage_02 = 20
 damage_03 = 20
-damage_04 = 0.5
+damage_04 = 1.3
 
 speed_player = 8
 
@@ -64,7 +64,7 @@ level_game = 0
 use_card = ''
 
 # player
-type_bullet = 3
+type_bullet = 4
 restore_blood = 0
 size_player = 'normal'
 turn_size_player = 0
