@@ -59,13 +59,13 @@ restore_blood = 0
 size_player = 'normal'
 turn_size_player = 0
 
-barrier = False
 turn_barrier = 0
 
 turn_cool_down_atk = 0
 
 use_card = ''
 
-turn_speed_enemy = 0
+turn_cool_up_enemy = 0
 turn_cool_down_enemy = 0
-turn_speed_move_enemy = 0
+turn_speed_move_up_enemy = 0
+turn_speed_move_down_enemy = 0

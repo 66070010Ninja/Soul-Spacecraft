@@ -76,7 +76,7 @@ class Bullets_FireFly(pygame.sprite.Sprite):
         self.rect.center = [x, y]
 
     def update(self):
-        self.rect.y += self.speed*(1 + (2*b.turn_speed_enemy > 0))
+        self.rect.y += self.speed
         if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()
 

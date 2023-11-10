@@ -10,13 +10,13 @@ import random
 
 def level_game():
     if b.level_game <= 10:
-        return 3, 7
+        return 3, 7, 100
     elif b.level_game <= 20:
-        return 4, 7
+        return 4, 7, 150
     elif b.level_game <= 30:
-        return 5, 7
+        return 5, 7, 200
     else:
-        return 6, 7
+        return 6, 7, 300
 
 def create_enemys_01(rows, cols, health):
     # generate enemys
@@ -35,3 +35,19 @@ def create_enemy_02(rows, cols, health):
             elif num == 2:
                 enemy = e.Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             e.enemy_group.add(enemy)
+
+def turn_up():
+    if b.turn_size_player != 0:
+        b.turn_size_player -= 1
+    if b.turn_barrier != 0:
+        b.turn_barrier -= 1
+    if b.turn_cool_down_atk != 0:
+        b.turn_cool_down_atk -= 1
+    if b.turn_speed_move_up_enemy != 0:
+        b.turn_speed_move_up_enemy -= 1
+    if b.turn_speed_move_down_enemy != 0:
+        b.turn_speed_move_down_enemy -= 1
+    if b.turn_cool_up_enemy != 0:
+        b.turn_cool_up_enemy -= 1
+    if b.turn_cool_down_enemy != 0:
+        b.turn_cool_down_enemy -= 1

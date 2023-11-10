@@ -69,9 +69,9 @@ class Spaceship(pygame.sprite.Sprite):
             self.kill()
 
         # hit damage
-        if pygame.sprite.spritecollide(self, bu.bullet_enemy_group, True) and b.barrier == False:
+        if pygame.sprite.spritecollide(self, bu.bullet_enemy_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy
-        if pygame.sprite.spritecollide(self, e.enemy_group, True) and b.barrier == False:
+        if pygame.sprite.spritecollide(self, e.enemy_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy_boom
             b.enemy_game -= 1
 
