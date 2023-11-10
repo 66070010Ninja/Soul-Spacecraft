@@ -29,6 +29,14 @@ bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ป�
 logo_game = pygame.image.load("Image/Game/Space of Arcana.png") # ดึงภาพจาก Image มาใช้งาน
 logo_game = pygame.transform.scale(logo_game, (600, 400)) # ปรับขนาดของ logo
 
+# แสดงรูป button start game
+button_game_start = pygame.image.load('Image/Game/start_button.jpg') # ดึงภาพจาก Game
+button_game_start = pygame.transform.scale(button_game_start, (325, 500)) # ปรับขนาดของ button
+
+# แสดงรูป button exit game
+button_game_exit = pygame.image.load('Image/Game/exit_button.jpg') # ดึงภาพจาก Game
+button_game_exit = pygame.transform.scale(button_game_exit, (325, 500)) # ปรับขนาดของ button
+
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
 
