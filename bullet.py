@@ -1,10 +1,9 @@
 # เปิดใช้งาน pygame
-from typing import Any
 import pygame
 from pygame.sprite import *
 pygame.init()
 
-# import
+# import file
 import database as b
 
 # สร้าง Bullets class
@@ -19,7 +18,7 @@ class Bullets(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y -= self.speed
-        if self.rect.bottom <= 0:
+        if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
 
 # สร้าง Bullets_Ball class
@@ -35,7 +34,7 @@ class Bullets_Ball(pygame.sprite.Sprite):
     def update(self):
         self.rect.y -= self.speed
         self.rect.x += self.distance
-        if self.rect.bottom <= 0 or self.rect.left <= 0 or self.rect.right >= b.SCREEN_W:
+        if (self.rect.bottom <= 0 or self.rect.left <= 0) or (self.rect.right >= b.SCREEN_W or b.start == False):
             self.kill()
 
 # สร้าง Bullets_Short class
@@ -49,7 +48,7 @@ class Bullets_Short(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y -= self.speed
-        if self.rect.bottom <= 0:
+        if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
 
 # สร้าง Bullets_Cannon class
@@ -63,7 +62,7 @@ class Bullets_Cannon(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y -= self.speed
-        if self.rect.bottom <= 0:
+        if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
 
 # สร้าง Bullets_FireFly
@@ -78,7 +77,7 @@ class Bullets_FireFly(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y += self.speed
-        if self.rect.top > b.SCREEN_H:
+        if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()
 
 bullet_01_group = pygame.sprite.Group()

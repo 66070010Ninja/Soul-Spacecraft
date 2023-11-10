@@ -6,13 +6,15 @@ pygame.init()
 # import file
 import database as b
 import play_start as ps
-import button as bt
+import start as s
 
 # กำหนดข้อความที่ Titlebar
 pygame.display.set_caption('Space Of Arcana')
 
 def title():
     b.draw_bg_game_play()
+    b.draw_logo_game()
+    s.start()
     key = pygame.key.get_pressed()
     for event in pygame.event.get(): # ตรวจสอบ event ระหว่างรันเกม
         if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม

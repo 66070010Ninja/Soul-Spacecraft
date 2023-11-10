@@ -5,7 +5,6 @@ pygame.init()
 
 # import file
 import database as b
-# import play_start as ps
 
 def pause_game():
     play_running = True

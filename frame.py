@@ -1,8 +1,7 @@
-# เรียกใช้ mudule pygame os time และ random
-import pygame
-import os
-import time
-import random
+# เปิดใช้งาน pygame os และ random
+import pygame ,os , random
+pygame.init()
+
 # เรียกใช้งานใช้ font
 pygame.font.init()
 

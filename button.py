@@ -1,37 +1,11 @@
-# เรียกใช้ module
-import pygame, sys, os
-import play_start as ps
-from pygame.locals import *
-# from main import *
-
-# เริ่มใช้ pygame
+# เปิดใช้งาน pygame
+import pygame
 pygame.init()
 
-# ชื่อเกม
-pygame.display.set_caption("Space of Arcana")
+# import file
+import database as b
 
-# หน้าจอ
-screen = pygame.display.set_mode((800, 800), pygame.RESIZABLE)
-
-# การแสดงภาพต่อวินาที
-clock = pygame.time.Clock()
-
-# หน้าจอ Fullscreen
-fullscreen = True
-
-# แสดงรูปพื้นหลังในหน้าจอ
-bg = pygame.image.load(os.path.join("Image/Game/background-black.png"))
-bg = pygame.transform.scale(bg, (800, 800))
-
-# แสดงรูปปุ่ม
-start_image = pygame.image.load(os.path.join("Image/Game/start_button.jpg")).convert_alpha()
-exit_image = pygame.image.load(os.path.join("Image/Game/exit_button.jpg")).convert_alpha()
-
-# เก็บพื้นหลัง
-def draw_bg():
-    screen.blit(bg, (0, 0))
-
-# คลาสปุ่ม
+# สร้าง Button class
 class Button():
     def __init__(self, x, y, image, scale):
         width = image.get_width()
@@ -58,37 +32,7 @@ class Button():
             self.clicked = False
 
         # วาดปุ่ม
-        screen.blit(self.image, (self.rect.x, self.rect.y))
+        b.screen.blit(self.image, (self.rect.x, self.rect.y))
 
         # คืนค่าตัวกระทำ
         return action
-
-# สร้างปุ่ม
-start_button = Button(325, 500 ,start_image, 0.23)
-exit_button = Button(325, 600 ,exit_image, 0.25)
-
-# แสดงหน้าจอ
-while True:
-
-    for event in pygame.event.get():
-
-        draw_bg()
-
-        if start_button.draw_button(): # กดปุ่มเพื่อเริ่มเกม
-            ps.start_game()
-
-        if exit_button.draw_button(): # กดปุ่มเพื่อออกเกม
-            pygame.quit()
-            sys.exit()
-
-        if event.type == QUIT: # กดปุ่มกากบาท มุมขวาบน
-            pygame.quit()
-            sys.exit()
-
-        if event.type == KEYDOWN: # กดปุ่ม
-            if event.key == K_ESCAPE: # กดปุ่ม ESC
-                pygame.quit()
-                sys.exit()
-
-    pygame.display.update() # อัปเดตหน้าจอ
-    clock.tick(60) # fps หน้าจอ

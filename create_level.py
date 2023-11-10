@@ -3,7 +3,7 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
-# import
+# import file
 import enemy as e
 import database as b
 import random

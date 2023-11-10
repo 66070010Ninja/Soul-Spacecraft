@@ -3,7 +3,7 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
-# import
+# import file
 import database as b
 import player as p
 import bullet as bu
@@ -37,12 +37,18 @@ def start_game():
                 play_running = False # หยุดการวนลูป while
             if key[pygame.K_ESCAPE]:
                 pg.pause_game()
-            if b.enemy_game == 0:
-                b.level_game += 1
-                b.start = False
-                b.use_card = ca.choose_card()
-                print(b.use_card)
-                start_game()
+        if b.enemy_game == 0:
+            if b.turn_size_player != 0:
+                b.turn_size_player -= 1
+            if b.turn_barrier != 0:
+                b.turn_barrier -= 1
+            if b.turn_cool_down_atk != 0:
+                b.turn_cool_down_atk -= 1
+            b.start = False
+            b.level_game += 1
+            b.use_card = ca.choose_card()
+            print(b.use_card)
+            start_game()
 
         # update spaceship
         p.spaceship.update()

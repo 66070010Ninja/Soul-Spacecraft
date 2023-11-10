@@ -3,6 +3,7 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
+# import file
 import database as b
 import bullet as bu
 

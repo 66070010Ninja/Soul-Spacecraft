@@ -25,8 +25,15 @@ screen = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 bg_game_play = pygame.image.load("Image/Game/background-black.png") # ดึงภาพจาก Image มาใช้งาน
 bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ปรับขนาดของ bg
 
+# แสดงรูป logo game
+logo_game = pygame.image.load("Image/Game/Space of Arcana.png") # ดึงภาพจาก Image มาใช้งาน
+logo_game = pygame.transform.scale(logo_game, (600, 400)) # ปรับขนาดของ logo
+
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
+
+def draw_logo_game():
+    screen.blit(logo_game, (100, 0))
 
 # เช็คปิดโปรแกรม
 start = False
@@ -39,20 +46,24 @@ damage_02 = 20
 damage_03 = 20
 damage_04 = 0.5
 
+speed_player = 8
+
 damage_enemy = 20
 damage_enemy_boom = 50
 
 level_game = 0
 
 type_bullet = 3
+restore_blood = 0
 
-use_card = 'BBASE'
+size_player = 'normal'
+turn_size_player = 0
 
-if use_card == 'BBASE':
-    type_bullet = 1
-elif use_card == 'BSPA':
-    type_bullet = 2
-elif use_card == 'BGAT':
-    type_bullet = 3
-elif use_card == 'BBIG':
-    type_bullet = 4
+barrier = False
+turn_barrier = 0
+
+turn_cool_down_atk = 0
+
+use_card = ''
+
+turn_speed_enemy = 0
