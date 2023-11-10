@@ -52,7 +52,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
 
-# Enemy_FireFly class
+# สร้าง Enemy_FireFly class
 class Enemys_FireFly(pygame.sprite.Sprite):
     def __init__(self, x, y, health, second):
         pygame.sprite.Sprite.__init__(self)
@@ -85,7 +85,6 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         cooldown = self.second*1000 # milliseconds
         time_now = pygame.time.get_ticks()
         check_cooldown = time_now - self.last_shot > cooldown
-
         if check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_FireFly(self.rect.centerx, self.rect.bottom, 3*(1+(2*b.turn_cool_up_enemy > 0)))
