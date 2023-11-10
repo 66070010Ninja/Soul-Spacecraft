@@ -21,7 +21,7 @@ card_list_nomal = [
     ("sklp", pygame.image.load("Image/Card png/sklp.png"), 15),
     ("BIGS", pygame.image.load("Image/Card png/BIGS.png"), 5),
     ("BR", pygame.image.load("Image/Card png/BR.png"), 1),
-    ("BSPA", pygame.image.load("Image/Card png/BSPA.png"), 10)
+    ("BSPA", pygame.image.load("Image/Card png/BSPA.png"), 10),
     ("BDS", pygame.image.load("Image/Card png/but down spd.png"), 8),
     ("DES", pygame.image.load("Image/Card png/DESTROY.png"), 0.01),
     ("DS", pygame.image.load("Image/Card png/down spd.png"), 8),
