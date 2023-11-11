@@ -29,11 +29,18 @@ bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ป�
 logo_game = pygame.image.load("Image/Game/Space of Arcana.png") # ดึงภาพจาก Image มาใช้งาน
 logo_game = pygame.transform.scale(logo_game, (617.5, 313.5)) # ปรับขนาดของ logo
 
+# สร้างภาพ gameover
+gameover = pygame.image.load("Image/Game/Gameover.png") # ดึงภาพจาก Image มาใช้งาน
+gameover = pygame.transform.scale(gameover, (617.5, 313.5)) # ปรับขนาดของภาพ Gameover
+
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
 
 def draw_logo_game():
     screen.blit(logo_game, (100, 0))
+
+def draw_game_over():
+    screen.blit(gameover, (100, 25))
 
 # เช็คปิดโปรแกรม
 start = False
