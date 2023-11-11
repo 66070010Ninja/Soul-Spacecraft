@@ -7,6 +7,7 @@ pygame.init()
 import database as b
 import bullet as bu
 import enemy as e
+import gameover as go
 
 # สร้าง Spachip class
 class Spaceship(pygame.sprite.Sprite):
@@ -67,7 +68,9 @@ class Spaceship(pygame.sprite.Sprite):
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom + 5), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom + 5), self.rect.width*(self.health_remaining/self.health_start), 10))
         if self.health_remaining <= 0:
-            self.kill()
+            b.gameover = True
+            self.health_remaining = 100
+            go.gameover()
 
         # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_enemy_group, True) and b.turn_barrier == 0:

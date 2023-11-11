@@ -17,10 +17,11 @@ def gameover():
         for event in pygame.event.get(): # ตรวจสอบ event ระหว่างรันเกม
             if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
                 b.exit_game = True # หยุดการวนลูป while
-            if key[pygame.K_SPACE] or b.gameover == False:
+            if key[pygame.K_SPACE] or b.title == True:
                 gameover_running = False
         if b.exit_game == True:
             gameover_running = False
+        bt.button_game_over_group.update()
+        bt.button_game_over_group.draw(b.screen)
         pygame.display.update()
     return True
-gameover()

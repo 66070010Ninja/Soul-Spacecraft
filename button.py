@@ -80,6 +80,7 @@ class Button_Title(pygame.sprite.Sprite):
 
 button_start_group = pygame.sprite.Group()
 button_pause_group = pygame.sprite.Group()
+button_game_over_group = pygame.sprite.Group()
 
 # สร้างปุ่ม
 button_start = Button_Start(b.SCREEN_W/2, 350)
@@ -92,3 +93,5 @@ button_pause_group.add(button_continue)
 
 button_start_group.add(button_start)
 button_start_group.add(button_exit)
+
+button_game_over_group.add(button_title)

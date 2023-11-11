@@ -13,6 +13,7 @@ import pause_game as pg
 import random
 import choose_a_card as ca
 import text as t
+import gameover as go
 
 def next_level():
     if b.start == False:

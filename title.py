@@ -20,8 +20,11 @@ def title():
         if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
             b.exit_game = True # หยุดการวนลูป while
     b.title = False
+    b.gameover = False
     b.new_game = True
     b.start = False
+    b.score_game = 0
+    b.level_game = 1
     if b.exit_game == True:
         return False
     bu.bullet_01_group.update()
