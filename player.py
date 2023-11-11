@@ -77,6 +77,8 @@ class Spaceship(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_enemy
         if pygame.sprite.spritecollide(self, bu.bullet_enemy_01_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy_01
+        if pygame.sprite.spritecollide(self, bu.bullet_boss_group, False) and b.turn_barrier == 0:
+            self.health_remaining -= b.damage_boss
         if pygame.sprite.spritecollide(self, e.enemy_group, True) and b.turn_barrier == 0:
             self.health_remaining -= b.damage_enemy_boom
             b.enemy_game -= 1
@@ -102,7 +104,7 @@ class Spaceship(pygame.sprite.Sprite):
         if b.type_bullet == 2 and check_cooldown:
             for i in range(-1, 2, 1):
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ระยะการกระจาย, ความเร็วของกระสุน)
-                bullet = bu.Bullets_Ball(self.rect.centerx, self.rect.top, i, 5)
+                bullet = bu.Bullets_Ball(self.rect.centerx, self.rect.top, i, 4)
                 bu.bullet_02_group.add(bullet)
             self.last_shot = time_now
 
@@ -114,7 +116,7 @@ class Spaceship(pygame.sprite.Sprite):
 
         if b.type_bullet == 4 and check_cooldown_slow:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
-            bullet = bu.Bullets_Cannon(self.rect.centerx, self.rect.top, 2)
+            bullet = bu.Bullets_Cannon(self.rect.centerx, self.rect.top, 3)
             bu.bullet_04_group.add(bullet)
             self.last_shot = time_now
 

@@ -68,7 +68,7 @@ def usd_card():
     elif b.use_card == 'BIGS':
         b.size_player = 'big'
         b.turn_size_player = 3
-    elif b.use_card == 'skip':
+    elif b.use_card == 'sklp':
         b.level_game += 1
         cl.turn_up()
     elif b.use_card == 'BR':

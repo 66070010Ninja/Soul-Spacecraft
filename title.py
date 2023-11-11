@@ -25,12 +25,17 @@ def title():
     b.start = False
     b.score_game = 0
     b.level_game = 1
+    b.damage_01 = 40
+    b.damage_02 = 18
+    b.damage_03 = 20
+    b.damage_04 = 2
     if b.exit_game == True:
         return False
     bu.bullet_01_group.update()
     bu.bullet_02_group.update()
     bu.bullet_03_group.update()
     bu.bullet_04_group.update()
+    bu.bullet_boss_group.update()
     bu.bullet_enemy_group.update()
     bu.bullet_enemy_01_group.update()
     e.enemy_group.update()
