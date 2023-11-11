@@ -61,14 +61,15 @@ clear_game = False
 
 # damage
 damage_01 = 40
-damage_02 = 20
+damage_02 = 18
 damage_03 = 20
-damage_04 = 1.3
+damage_04 = 2
 
 speed_player = 8
 
 damage_enemy = 20
 damage_enemy_01 = 10
+damage_boss = 0.5
 damage_enemy_boom = 50
 
 level_game = 1

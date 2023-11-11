@@ -111,9 +111,25 @@ class Bullets_Flame_Boy(pygame.sprite.Sprite):
         if b.new_game == True or b.clear_game == True:
             self.kill()
 
+# สร้าง Bullets_Boss
+class Bullets_Boss(pygame.sprite.Sprite):
+    def __init__(self, x, y, speed):
+        self.speed = speed
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Laser/Laser_Boss.png')
+        self.rect = self.image.get_rect()
+        self.rect.center = [x, y]
+    def update(self):
+        self.rect.y += self.speed
+        if (self.rect.top > b.SCREEN_H) or (b.start == False):
+            self.kill()
+        if b.new_game == True or b.clear_game == True:
+            self.kill()
+
 bullet_01_group = pygame.sprite.Group()
 bullet_02_group = pygame.sprite.Group()
 bullet_03_group = pygame.sprite.Group()
 bullet_04_group = pygame.sprite.Group()
+bullet_boss_group = pygame.sprite.Group()
 bullet_enemy_group = pygame.sprite.Group()
 bullet_enemy_01_group = pygame.sprite.Group()

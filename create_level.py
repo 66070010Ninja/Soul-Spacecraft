@@ -9,14 +9,18 @@ import database as b
 import random
 
 def level_game():
-    if b.level_game <= 10:
+    if b.level_game % 5 == 0:
+        if b.turn_barrier > 0:
+            b.turn_barrier == 0
+        return (b.SCREEN_W//2), 130, ((b.level_game/5)*500) + 500
+    elif b.level_game <= 10:
         return 2, 7, 100
     elif b.level_game <= 20:
         return 3, 7, 150
     elif b.level_game <= 30:
         return 4, 7, 200
     else:
-        return 5, 7, 300
+        return 5, 7, ((b.level_game//10)*50)+100
 
 def create_enemys_01(rows, cols, health):
     # generate enemys
@@ -48,6 +52,10 @@ def create_ennemys_03(rows, cols, health):
             elif num == 3:
                 enemy = e.Enemys_Flame_Boy(80 + item * 100, 50 + (row+1) * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             e.enemy_group.add(enemy)
+
+def create_ennemys_boss(rows, cols, health):
+    enemy = e.Main_Boss(rows, cols, health)
+    e.enemy_group.add(enemy)
 
 def turn_up():
     if b.turn_size_player != 0:
