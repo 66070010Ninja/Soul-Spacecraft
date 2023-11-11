@@ -115,6 +115,9 @@ class Spaceship(pygame.sprite.Sprite):
             bu.bullet_04_group.add(bullet)
             self.last_shot = time_now
 
+        if b.new_game == True:
+            self.kill()
+
 spaceship_group = pygame.sprite.Group()
 
 # สร้าง player

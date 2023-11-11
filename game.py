@@ -26,7 +26,16 @@ def next_level():
             cl.create_ennemys_03(rows, cols, health)
         b.start = True
 
+def new_game():
+    bu.bullet_01_group.remove()
+    bu.bullet_02_group.remove()
+    bu.bullet_03_group.remove()
+    bu.bullet_04_group.remove()
+    bu.bullet_enemy_group.remove()
+    bu.bullet_enemy_01_group.remove()
+
 def start_game():
+    print('a')
     next_level()
     play_running = True
     while play_running == True:

@@ -24,6 +24,7 @@ class Button_Start(pygame.sprite.Sprite):
         # เช็คตำแหน่งและการคลิ๊ก
         if self.rect.collidepoint(pos):
             if pygame.mouse.get_pressed()[0] == 1:
+                b.new_game = False
                 g.start_game()
 
 # สร้าง Button_Exit class

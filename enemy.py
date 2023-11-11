@@ -51,6 +51,9 @@ class Enemys_Flameow(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_03
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
+        
+        if b.new_game == True:
+            self.kill()
 
 # สร้าง Enemy_FireFly class
 class Enemys_FireFly(pygame.sprite.Sprite):
@@ -108,6 +111,9 @@ class Enemys_FireFly(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_03
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
+        
+        if b.new_game == True:
+            self.kill()
 
 # Enemys_Flame_Boy class
 class Enemys_Flame_Boy(pygame.sprite.Sprite):
@@ -165,5 +171,8 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_03
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
+
+        if b.new_game == True:
+            self.kill()
 
 enemy_group = pygame.sprite.Group()

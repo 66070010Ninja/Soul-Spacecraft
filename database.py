@@ -41,6 +41,7 @@ exit_game = False
 enemy_game = 0
 pause = False
 title = False
+new_game = True
 
 # damage
 damage_01 = 40
