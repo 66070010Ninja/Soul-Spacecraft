@@ -12,10 +12,12 @@ def pause_game():
     while pause_running == True:
         b.clock.tick(b.FPS)
         b.draw_bg_game_play()
+        b.draw_game_papse()
         key = pygame.key.get_pressed()
         for event in pygame.event.get(): # ตรวจสอบ event ระหว่างรันเกม
             if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม
                 b.exit_game = True # หยุดการวนลูป while
+                pause_running = False
             if key[pygame.K_ESCAPE] or b.pause == False or b.title == True:
                 pause_running = False
         if b.exit_game == True:

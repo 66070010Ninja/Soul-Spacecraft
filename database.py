@@ -33,14 +33,21 @@ logo_game = pygame.transform.scale(logo_game, (617.5, 313.5)) # ปรับข�
 gameover_img = pygame.image.load("Image/Game/Gameover.png") # ดึงภาพจาก Image มาใช้งาน
 gameover_img = pygame.transform.scale(gameover_img, (525, 112.5)) # ปรับขนาดของภาพ Gameover
 
+# สร้างภาพ game pause
+game_pause_img = pygame.image.load("Image/Game/Game Pause.png")
+game_pause_img = pygame.transform.scale(game_pause_img, (487, 316))
+
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
 
 def draw_logo_game():
-    screen.blit(logo_game, (100, 0))
+    screen.blit(logo_game, ((SCREEN_W-logo_game.get_width())/2, 0))
 
 def draw_game_over():
-    screen.blit(gameover_img, (150, 25))
+    screen.blit(gameover_img, ((SCREEN_W-gameover_img.get_width())/2, 50))
+
+def draw_game_papse():
+    screen.blit(game_pause_img, ((SCREEN_W-game_pause_img.get_width())/2, 0))
 
 # เช็คปิดโปรแกรม
 enemy_game = 0 # จำนวนศัตรูของเลเวลนั้นๆ
@@ -66,6 +73,7 @@ damage_enemy_boom = 50
 
 level_game = 1
 score_game = 0
+height_score_game = 0
 
 use_card = ''
 
