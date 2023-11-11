@@ -78,6 +78,16 @@ class Button_Title(pygame.sprite.Sprite):
             if pygame.mouse.get_pressed()[0] == 1:
                 b.title = True
 
+# Button_Restart class
+class Button_Restart(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Game/Restart.png')
+        self.image = pygame.transform.scale(self.image, (314, 104))
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.y = y
+
 button_start_group = pygame.sprite.Group()
 button_pause_group = pygame.sprite.Group()
 button_game_over_group = pygame.sprite.Group()
@@ -87,6 +97,7 @@ button_start = Button_Start(b.SCREEN_W/2, 350)
 button_exit = Button_Exit(b.SCREEN_W/2, 500)
 button_continue = Button_Continue(b.SCREEN_W/2, 350)
 button_title = Button_Title(b.SCREEN_W/2, 500)
+button_restart = Button_Restart(b.SCREEN_W/2, 350)
 
 button_pause_group.add(button_title)
 button_pause_group.add(button_continue)
@@ -94,4 +105,5 @@ button_pause_group.add(button_continue)
 button_start_group.add(button_start)
 button_start_group.add(button_exit)
 
+button_game_over_group.add(button_restart)
 button_game_over_group.add(button_title)
