@@ -20,7 +20,7 @@ class Bullets(pygame.sprite.Sprite):
         self.rect.y -= self.speed
         if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
-        if b.new_game == True:
+        if b.new_game == True or b.clear_game == True:
             self.kill()
 
 # สร้าง Bullets_Ball class
@@ -54,7 +54,7 @@ class Bullets_Short(pygame.sprite.Sprite):
         self.rect.y -= self.speed
         if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
-        if b.new_game == True:
+        if b.new_game == True or b.clear_game == True:
             self.kill()
 
 # สร้าง Bullets_Cannon class
@@ -70,7 +70,7 @@ class Bullets_Cannon(pygame.sprite.Sprite):
         self.rect.y -= self.speed
         if (self.rect.bottom <= 0) or (b.start == False):
             self.kill()
-        if b.new_game == True:
+        if b.new_game == True or b.clear_game == True:
             self.kill()
 
 # สร้าง Bullets_FireFly
@@ -87,7 +87,7 @@ class Bullets_FireFly(pygame.sprite.Sprite):
         self.rect.y += self.speed
         if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()
-        if b.new_game == True:
+        if b.new_game == True or b.clear_game == True:
             self.kill()
 
 # สร้าง Bullets_Flame_Boy
@@ -108,7 +108,7 @@ class Bullets_Flame_Boy(pygame.sprite.Sprite):
             self.rect.x += self.speed/2
         if (self.rect.top > b.SCREEN_H) or (b.start == False):
             self.kill()
-        if b.new_game == True:
+        if b.new_game == True or b.clear_game == True:
             self.kill()
 
 bullet_01_group = pygame.sprite.Group()

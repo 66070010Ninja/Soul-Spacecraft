@@ -30,9 +30,9 @@ def title():
     bu.bullet_04_group.update()
     bu.bullet_enemy_group.update()
     bu.bullet_enemy_01_group.update()
+    e.enemy_group.update()
     bt.button_start_group.update()
     bt.button_start_group.draw(b.screen)
-    e.enemy_group.update()
     pygame.display.update()
     return True
 

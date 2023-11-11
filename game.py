@@ -25,6 +25,14 @@ def next_level():
         elif design == 3:
             cl.create_ennemys_03(rows, cols, health)
         b.start = True
+    bu.bullet_01_group.update()
+    bu.bullet_02_group.update()
+    bu.bullet_03_group.update()
+    bu.bullet_04_group.update()
+    bu.bullet_enemy_group.update()
+    bu.bullet_enemy_01_group.update()
+    e.enemy_group.update()
+    b.clear_game = False
 
 def new_game():
     bu.bullet_01_group.remove()
@@ -35,7 +43,6 @@ def new_game():
     bu.bullet_enemy_01_group.remove()
 
 def start_game():
-    print('a')
     next_level()
     play_running = True
     while play_running == True:
@@ -52,6 +59,7 @@ def start_game():
                 b.pause = True
                 pg.pause_game()
         if b.enemy_game == 0:
+            b.clear_game = True
             cl.turn_up()
             b.start = False
             b.level_game += 1
