@@ -64,7 +64,8 @@ damage_enemy = 20
 damage_enemy_01 = 10
 damage_enemy_boom = 50
 
-level_game = 0
+level_game = 1
+score_game = 0
 
 use_card = ''
 

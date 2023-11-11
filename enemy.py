@@ -40,6 +40,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
         if self.health_remaining <= 0:
             b.enemy_game -= 1
+            b.score_game += 10
             self.kill()
 
         # hit damage
@@ -100,6 +101,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
         if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
             b.enemy_game -= 1
+            b.score_game += 30
             self.kill()
 
         # hit damage
@@ -160,6 +162,7 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
         if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
             b.enemy_game -= 1
+            b.score_game += 50
             self.kill()
 
         # hit damage

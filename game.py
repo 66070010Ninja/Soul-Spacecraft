@@ -12,6 +12,7 @@ import create_level as cl
 import pause_game as pg
 import random
 import choose_a_card as ca
+import text as t
 
 def next_level():
     if b.start == False:
@@ -50,6 +51,8 @@ def start_game():
 
         # draw background
         b.draw_bg_game_play()
+        b.screen.blit(t.level_label, (10, 10))
+        b.screen.blit(t.score_label, (t.score_label_width+10, 10))
         key = pygame.key.get_pressed()
         for event in pygame.event.get(): # ตวรจสอบ event ระหว่างรันเกม
             if event.type == pygame.QUIT or b.exit_game == True: # ถ้าเกิด event ปิดหน้าจอเกม
