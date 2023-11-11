@@ -40,6 +40,7 @@ def start_game():
                 b.exit_game = True
                 play_running = False # หยุดการวนลูป while
             if key[pygame.K_ESCAPE]:
+                b.pause = True
                 pg.pause_game()
         if b.enemy_game == 0:
             cl.turn_up()
@@ -47,6 +48,8 @@ def start_game():
             b.level_game += 1
             b.use_card = ca.choose_card()
             next_level()
+        if b.title == True:
+            return
 
         # update spaceship
         p.spaceship.update()

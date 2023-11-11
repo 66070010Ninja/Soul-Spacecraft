@@ -27,7 +27,7 @@ bg_game_play = pygame.transform.scale(bg_game_play, (SCREEN_W, SCREEN_H)) # ป�
 
 # แสดงรูป logo game
 logo_game = pygame.image.load("Image/Game/Space of Arcana.png") # ดึงภาพจาก Image มาใช้งาน
-logo_game = pygame.transform.scale(logo_game, (600, 400)) # ปรับขนาดของ logo
+logo_game = pygame.transform.scale(logo_game, (617.5, 313.5)) # ปรับขนาดของ logo
 
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
@@ -39,6 +39,8 @@ def draw_logo_game():
 start = False
 exit_game = False
 enemy_game = 0
+pause = False
+title = False
 
 # damage
 damage_01 = 40

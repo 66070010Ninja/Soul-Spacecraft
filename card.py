@@ -4,6 +4,7 @@ from pygame.sprite import *
 pygame.init()
 
 import database as b
+import create_level as cl
 
 # สร้างลิสต์ของการ์ด (รูปภาพการ์ด) และความถี่เป็นเปอร์เซ็นต์
 card_list_1 = [
@@ -69,6 +70,7 @@ def usd_card():
         b.turn_size_player = 3
     elif b.use_card == 'skip':
         b.level_game += 1
+        cl.turn_up()
     elif b.use_card == 'BR':
         b.turn_barrier = 2
     elif b.use_card == 'HB':

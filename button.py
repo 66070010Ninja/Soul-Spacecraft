@@ -1,38 +1,93 @@
 # เปิดใช้งาน pygame
+from typing import Any
 import pygame
+from pygame.sprite import *
 pygame.init()
 
 # import file
 import database as b
+import game as g
+# import title as t
 
-# สร้าง Button class
-class Button():
-    def __init__(self, x, y, image, scale):
-        width = image.get_width()
-        height = image.get_height()
-        self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
+# สร้าง Button_Start class
+class Button_Start(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Game/Start.png')
+        self.image = pygame.transform.scale(self.image, (208, 94))
         self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
-        self.clicked = False
-
-    def draw_button(self):
-        # ตัวกระทำ
-        action = False
-
+        self.rect.centerx = x
+        self.rect.y = y
+    def update(self):
         # ตำแหน่งเมาส์
         pos = pygame.mouse.get_pos()
-
         # เช็คตำแหน่งและการคลิ๊ก
         if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
-                self.clicked = True
-                action = True
+            if pygame.mouse.get_pressed()[0] == 1:
+                g.start_game()
 
-        if pygame.mouse.get_pressed()[0] == 0:
-            self.clicked = False
+# สร้าง Button_Exit class
+class Button_Exit(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Game/Exit.png')
+        self.image = pygame.transform.scale(self.image, (208, 94))
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.y = y
+    def update(self):
+        # ตำแหน่งเมาส์
+        pos = pygame.mouse.get_pos()
+        # เช็คตำแหน่งและการคลิ๊ก
+        if self.rect.collidepoint(pos):
+            if pygame.mouse.get_pressed()[0] == 1:
+                b.exit_game = True
 
-        # วาดปุ่ม
-        b.screen.blit(self.image, (self.rect.x, self.rect.y))
+# สร้าง Button_Continue class
+class Button_Continue(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Game/Continue.png')
+        self.image = pygame.transform.scale(self.image, (314, 104))
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.y = y
+    def update(self):
+        # ตำแหน่งเมาส์
+        pos = pygame.mouse.get_pos()
+        # เช็คตำแหน่งและการคลิ๊ก
+        if self.rect.collidepoint(pos):
+            if pygame.mouse.get_pressed()[0] == 1:
+                b.pause = False
 
-        # คืนค่าตัวกระทำ
-        return action
+#  Buttn_Title class
+class Button_Title(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Image/Game/TITLE.png')
+        self.image = pygame.transform.scale(self.image, (208, 94))
+        self.rect = self.image.get_rect()
+        self.rect.centerx = x
+        self.rect.y = y
+    def update(self):
+        # ตำแหน่งเมาส์
+        pos = pygame.mouse.get_pos()
+        # เช็คตำแหน่งและการคลิ๊ก
+        if self.rect.collidepoint(pos):
+            if pygame.mouse.get_pressed()[0] == 1:
+                b.title = True
+
+button_start_group = pygame.sprite.Group()
+button_pause_group = pygame.sprite.Group()
+
+# สร้างปุ่ม
+button_start = Button_Start(b.SCREEN_W/2, 350)
+button_exit = Button_Exit(b.SCREEN_W/2, 500)
+button_continue = Button_Continue(b.SCREEN_W/2, 350)
+button_title = Button_Title(b.SCREEN_W/2, 500)
+
+button_pause_group.add(button_title)
+button_pause_group.add(button_continue)
+
+button_start_group.add(button_start)
+button_start_group.add(button_exit)
