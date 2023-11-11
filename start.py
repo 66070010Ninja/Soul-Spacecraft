@@ -21,9 +21,9 @@ exit_button = bt.Button(285, 600, exit_image, 0.75)
 
 # แสดงหน้าจอ
 def start():
-    button_running = True
+    start_running = True
     b.draw_logo_game()
-    while button_running == True:
+    while start_running == True:
 
         for event in pygame.event.get():
 

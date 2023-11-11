@@ -43,11 +43,12 @@ def draw_game_over():
     screen.blit(gameover, (100, 25))
 
 # เช็คปิดโปรแกรม
+enemy_game = 0 # จำนวนศัตรูของเลเวลนั้นๆ
 start = False
 exit_game = False
-enemy_game = 0
-pause = False
 title = False
+pause = False
+gameover = False
 new_game = True
 clear_game = False
 
