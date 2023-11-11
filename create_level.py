@@ -10,19 +10,19 @@ import random
 
 def level_game():
     if b.level_game <= 10:
-        return 3, 7, 100
+        return 2, 7, 100
     elif b.level_game <= 20:
-        return 4, 7, 150
+        return 3, 7, 150
     elif b.level_game <= 30:
-        return 5, 7, 200
+        return 4, 7, 200
     else:
-        return 6, 7, 300
+        return 5, 7, 300
 
 def create_enemys_01(rows, cols, health):
     # generate enemys
     for row in range(rows):
         for item in range(cols):
-            enemy = e.Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
+            enemy = e.Enemys_Flameow(80 + item * 100, 50 + (row+1) * 80, health)
             e.enemy_group.add(enemy)
 
 def create_enemy_02(rows, cols, health):
@@ -31,9 +31,9 @@ def create_enemy_02(rows, cols, health):
         for item in range(cols):
             num = random.randint(1, 2)
             if num == 1:
-                enemy = e.Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
+                enemy = e.Enemys_Flameow(80 + item * 100, 50 + (row+1) * 80, health)
             elif num == 2:
-                enemy = e.Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
+                enemy = e.Enemys_FireFly(80 + item * 100, 50 + (row+1) * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             e.enemy_group.add(enemy)
 
 def create_ennemys_03(rows, cols, health):
@@ -42,11 +42,11 @@ def create_ennemys_03(rows, cols, health):
         for item in range(cols):
             num = random.randint(1, 3)
             if num == 1:
-                enemy = e.Enemys_Flameow(80 + item * 100, 50 + row * 80, health)
+                enemy = e.Enemys_Flameow(80 + item * 100, 50 + (row+1) * 80, health)
             elif num == 2:
-                enemy = e.Enemys_FireFly(80 + item * 100, 50 + row * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
+                enemy = e.Enemys_FireFly(80 + item * 100, 50 + (row+1) * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             elif num == 3:
-                enemy = e.Enemys_Flame_Boy(80 + item * 100, 50 + row * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
+                enemy = e.Enemys_Flame_Boy(80 + item * 100, 50 + (row+1) * 80, health, random.randint(3, 9)*(1 + (b.turn_cool_down_enemy > 0)))
             e.enemy_group.add(enemy)
 
 def turn_up():
