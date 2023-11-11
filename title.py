@@ -8,11 +8,13 @@ import database as b
 import button as bt
 import enemy as e
 import bullet as bu
+import sound as s
 
 # กำหนดข้อความที่ Titlebar
 pygame.display.set_caption('Space Of Arcana')
 
 def title():
+    s.main_sound()
     b.draw_bg_game_play()
     b.draw_logo_game()
     b.clock.tick(b.FPS)

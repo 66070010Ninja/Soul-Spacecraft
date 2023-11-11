@@ -12,7 +12,7 @@ def level_game():
     if b.level_game % 5 == 0:
         if b.turn_barrier > 0:
             b.turn_barrier == 0
-        return (b.SCREEN_W//2), 130, (b.level_game/5)*1000
+        return (b.SCREEN_W//2), 130, ((b.level_game/5)*500) + 500
     elif b.level_game <= 10:
         return 2, 7, 100
     elif b.level_game <= 20:
