@@ -37,6 +37,9 @@ gameover_img = pygame.transform.scale(gameover_img, (525, 112.5)) # ปรับ
 game_pause_img = pygame.image.load("Image/Game/Game Pause.png")
 game_pause_img = pygame.transform.scale(game_pause_img, (487, 316))
 
+# เสียงเกม
+#main_sound = pygame.mixer.Sound("")
+
 def draw_bg_game_play():
     screen.blit(bg_game_play, (0, 0))
 
