@@ -96,3 +96,6 @@ turn_speed_move_down_enemy = 0
 # ตำแหน่ง player
 player_x = 0
 player_y = 0
+
+main_sound = pygame.mixer.Sound("Sound/main_sound.mp3") # ใส่เสียง
+main_sound.set_volume(0.15)

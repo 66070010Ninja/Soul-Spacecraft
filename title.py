@@ -14,6 +14,9 @@ import sound as s
 pygame.display.set_caption('Space Of Arcana')
 
 def title():
+    if b.exit_game == True:
+        return False
+    s.main_sound()
     b.draw_bg_game_play()
     b.draw_logo_game()
     b.clock.tick(b.FPS)
@@ -22,7 +25,9 @@ def title():
             b.exit_game = True # หยุดการวนลูป while
     b.title = False
     b.gameover = False
-    b.new_game = True
+    if b.new_game == False:
+        b.new_game = True
+        b.sound_title = False
     b.start = False
     b.score_game = 0
     b.level_game = 1
@@ -30,8 +35,7 @@ def title():
     b.damage_02 = 18
     b.damage_03 = 20
     b.damage_04 = 2
-    if b.exit_game == True:
-        return False
+
     bu.bullet_01_group.update()
     bu.bullet_02_group.update()
     bu.bullet_03_group.update()
