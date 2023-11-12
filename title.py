@@ -14,7 +14,6 @@ import sound as s
 pygame.display.set_caption('Space Of Arcana')
 
 def title():
-    s.main_sound()
     b.draw_bg_game_play()
     b.draw_logo_game()
     b.clock.tick(b.FPS)
