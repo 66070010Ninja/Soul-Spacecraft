@@ -17,6 +17,13 @@ import gameover as go
 import sound as s
 
 def next_level():
+    bu.bullet_01_group.update()
+    bu.bullet_02_group.update()
+    bu.bullet_03_group.update()
+    bu.bullet_04_group.update()
+    bu.bullet_boss_group.update()
+    bu.bullet_enemy_group.update()
+    bu.bullet_enemy_01_group.update()
     if b.start == False:
         rows, cols, health = cl.level_game()
         b.enemy_game = rows*cols
@@ -35,13 +42,6 @@ def next_level():
         elif design == 4:
             cl.create_ennemys_boss(rows, cols, health)
         b.start = True
-    bu.bullet_01_group.update()
-    bu.bullet_02_group.update()
-    bu.bullet_03_group.update()
-    bu.bullet_04_group.update()
-    bu.bullet_boss_group.update()
-    bu.bullet_enemy_group.update()
-    bu.bullet_enemy_01_group.update()
     e.enemy_group.update()
     b.clear_game = False
 
