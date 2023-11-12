@@ -80,12 +80,12 @@ def usd_card():
     elif b.use_card == 'NO':
         pass
     elif b.use_card == 'SUP':
-        b.turn_cool_up_enemy == 2
+        b.turn_cool_up_enemy = 2
     elif b.use_card == 'BDS':
-        b.turn_cool_down_enemy == 1
+        b.turn_cool_down_enemy = 2
     elif b.use_card == 'SPD UP':
-        b.turn_speed_move_up_enemy == 2
+        b.turn_speed_move_up_enemy = 2
     elif b.use_card == 'DES':
         b.restore_blood -= 500
     elif b.use_card == 'DS':
-        b.turn_speed_move_down_enemy == 2
+        b.turn_speed_move_down_enemy = 2

@@ -212,23 +212,23 @@ class Main_Boss(pygame.sprite.Sprite):
             pattern =  random.randint(1, 3)
             if pattern == 1:
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(110+(i*110), 0-(i*110), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(80+(i*80), 0-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_H-110-(i*110), 0-(i*105), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), 0-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(110+(i*110), -640-(i*110), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(80+(i*80), -920-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_H-110-(i*110), -640-(i*110), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -920-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(110+(i*110), -1280-(i*110), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(80+(i*80), -1840-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
-                for i in range(0, 7):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_H-110-(i*110), -1280-(i*110), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                for i in range(0, 9):
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -1840-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
                     bu.bullet_enemy_group.add(bullet)
                 self.second = 15
                 self.last_shot = time_now
