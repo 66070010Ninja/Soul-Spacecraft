@@ -58,6 +58,7 @@ pause = False
 gameover = False
 new_game = True
 clear_game = False
+sound_title = False
 
 # damage
 damage_01 = 40

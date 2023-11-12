@@ -10,6 +10,8 @@ import button as bt
 def pause_game():
     pause_running = True
     while pause_running == True:
+        if b.exit_game == True:
+            pause_running = False
         b.clock.tick(b.FPS)
         b.draw_bg_game_play()
         b.draw_game_papse()
@@ -20,8 +22,6 @@ def pause_game():
                 pause_running = False
             if key[pygame.K_ESCAPE] or b.pause == False or b.title == True:
                 pause_running = False
-        if b.exit_game == True:
-            pause_running = False
         bt.button_pause_group.update()
         bt.button_pause_group.draw(b.screen)
         pygame.display.update()
