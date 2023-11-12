@@ -97,15 +97,19 @@ turn_speed_move_down_enemy = 0
 player_x = 0
 player_y = 0
 
-main_sound = pygame.mixer.Sound("Sound/main_sound.mp3") # ใส่เสียง
+main_sound = pygame.mixer.Sound("Sound/Game/main.mp3") # ใส่เสียง
 main_sound.set_volume(0.15) # ปรับเสียง
 
-boss_sound = pygame.mixer.Sound("Sound/boss.mp3") # ใส่เสียง
+boss_sound = pygame.mixer.Sound("Sound/Gmae/boss.mp3") # ใส่เสียง
 boss_sound.set_volume(0.15) # ปรับเสียง
 
-enemy_sound = pygame.mixer.Sound("Sound/enemy.mp3") # ใส่เสียง
+enemy_sound = pygame.mixer.Sound("Sound/Game/enemy.mp3") # ใส่เสียง
 enemy_sound.set_volume(0.15) # ปรับเสียง
 
+gameover_sound = pygame.mixer.Sound("Sound/Game/gameover.wav") # ใส่เสียง
+gameover_sound.set_volume(0.15) # ปรับเสียง
+
 sound_title = False
-sound_game_play = False
+sound_enemy = False
 sound_boss = False
+sound_gameover = False
