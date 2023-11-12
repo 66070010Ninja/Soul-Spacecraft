@@ -33,6 +33,8 @@ def next_level():
                 b.turn_barrier = 0
             b.enemy_game = 1
             design = 4
+        if design != 4:
+            s.enemy_sound()
         if design == 1:
             cl.create_enemys_01(rows, cols, health)
         elif design == 2:
@@ -41,15 +43,16 @@ def next_level():
             cl.create_ennemys_03(rows, cols, health)
         elif design == 4:
             cl.create_ennemys_boss(rows, cols, health)
+            s.boss_sound()
         b.start = True
     e.enemy_group.update()
     b.clear_game = False
 
 def start_game():
+    s.main_sound()
     next_level()
     play_running = True
     while play_running == True:
-        s.main_sound()
         b.clock.tick(b.FPS)
         if b.title == True:
             return

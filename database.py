@@ -58,7 +58,7 @@ pause = False
 gameover = False
 new_game = True
 clear_game = False
-sound_title = False
+
 
 # damage
 damage_01 = 40
@@ -100,8 +100,12 @@ player_y = 0
 main_sound = pygame.mixer.Sound("Sound/main_sound.mp3") # ใส่เสียง
 main_sound.set_volume(0.15) # ปรับเสียง
 
-boss_sound = pygame.mixer.Sound("Sound/boss_sound.mp3") # ใส่เสียง
+boss_sound = pygame.mixer.Sound("Sound/boss.mp3") # ใส่เสียง
 boss_sound.set_volume(0.15) # ปรับเสียง
 
-enemy_sound = pygame.mixer.Sound("Sound/main_sound.mp3") # ใส่เสียง
+enemy_sound = pygame.mixer.Sound("Sound/enemy.mp3") # ใส่เสียง
 enemy_sound.set_volume(0.15) # ปรับเสียง
+
+sound_title = False
+sound_game_play = False
+sound_boss = False
