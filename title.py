@@ -13,6 +13,7 @@ import sound as s
 # กำหนดข้อความที่ Titlebar
 pygame.display.set_caption('Space Of Arcana')
 
+# สร้ามเกม
 def title():
     if b.exit_game == True:
         return False
@@ -50,6 +51,7 @@ def title():
     pygame.display.update()
     return True
 
+# เปิดหน้าเกม
 running = True
 while running == True:
     running = title()

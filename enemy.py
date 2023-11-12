@@ -295,5 +295,5 @@ class Main_Boss(pygame.sprite.Sprite):
         if b.new_game == True:
             self.kill()
 
-
+# เก็บกลุ่มของศัตรู
 enemy_group = pygame.sprite.Group()

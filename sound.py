@@ -4,6 +4,7 @@ from pygame.locals import *
 pygame.init()
 pygame.mixer.init()
 
+# import file
 import database as b
 
 # เสียงหน้าหลัก
@@ -29,7 +30,7 @@ def boss_sound():
         pygame.mixer.Sound.play(b.boss_sound) # เล่นเสียง
         b.sound_boss = True
 
-# เสียงเกมหลัก
+# เสียงเจอศัตรู
 def enemy_sound():
     if b.sound_boss == True:
         pygame.mixer.stop()

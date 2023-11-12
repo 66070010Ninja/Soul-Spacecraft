@@ -98,6 +98,7 @@ class Spaceship(pygame.sprite.Sprite):
         if b.type_bullet == 1 and check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets(self.rect.centerx, self.rect.top, 5)
+            pygame.mixer.Sound.play(b.laser_type01_sound)
             bu.bullet_01_group.add(bullet)
             self.last_shot = time_now
 
@@ -112,18 +113,21 @@ class Spaceship(pygame.sprite.Sprite):
         if b.type_bullet == 3 and check_cooldown_flast:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Short(self.rect.centerx, self.rect.top, 10)
+            pygame.mixer.Sound.play(b.laser_type03_sound)
             bu.bullet_03_group.add(bullet)
             self.last_shot = time_now
 
         if b.type_bullet == 4 and check_cooldown_slow:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
             bullet = bu.Bullets_Cannon(self.rect.centerx, self.rect.top, 3)
+            pygame.mixer.Sound.play(b.laser_type04_sound)
             bu.bullet_04_group.add(bullet)
             self.last_shot = time_now
 
         if b.new_game == True:
             self.kill()
 
+# เก็บกลุ่มของยาน
 spaceship_group = pygame.sprite.Group()
 
 # สร้าง player

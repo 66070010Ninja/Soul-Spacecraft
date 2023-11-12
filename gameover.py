@@ -9,6 +9,7 @@ import button as bt
 import text as t
 import sound as s
 
+# สร้างหน้าจบเกม
 def gameover():
     s.gameover_sound()
     gameover_running = True

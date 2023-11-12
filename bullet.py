@@ -126,6 +126,7 @@ class Bullets_Boss(pygame.sprite.Sprite):
         if b.new_game == True or b.clear_game == True:
             self.kill()
 
+# เก็บกลุ่มของกระสุนที่ใช้ class bullet สร้าง
 bullet_01_group = pygame.sprite.Group()
 bullet_02_group = pygame.sprite.Group()
 bullet_03_group = pygame.sprite.Group()

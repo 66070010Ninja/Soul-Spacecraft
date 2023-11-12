@@ -7,6 +7,7 @@ pygame.init()
 import database as b
 import button as bt
 
+# สร้างหน้าพอสเกม
 def pause_game():
     pause_running = True
     while pause_running == True:
@@ -14,7 +15,7 @@ def pause_game():
             pause_running = False
         b.clock.tick(b.FPS)
         b.draw_bg_game_play()
-        b.draw_game_papse()
+        b.draw_game_pause()
         key = pygame.key.get_pressed()
         for event in pygame.event.get(): # ตรวจสอบ event ระหว่างรันเกม
             if event.type == pygame.QUIT: # ถ้าเกิด event ปิดหน้าจอเกม

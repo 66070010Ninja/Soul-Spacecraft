@@ -3,11 +3,13 @@ import pygame
 from pygame.sprite import *
 pygame.init()
 
+# import file
 import database as b
 
 # เรียกใช้ font โดยใช้ font type comicsans ขนาด 50 pixel
 score_font = pygame.font.SysFont('comicsans', 40)
 
+# วาดเลเวล และคะแนน
 def draw_text():
     level_label = score_font.render('Level : %02d'%b.level_game, 1, (255, 255, 255))
 
@@ -17,6 +19,7 @@ def draw_text():
     b.screen.blit(level_label, (10, 10))
     b.screen.blit(score_label, (b.SCREEN_W-score_label_width-10, 10))
 
+# วาดคะแนน และคะแนนสูงสุด
 def score_game():
     score_label = score_font.render('Your Score : %05d'%b.score_game, 1, (255, 255, 255))
     score_label_width = score_label.get_width()

@@ -15,6 +15,7 @@ import choose_a_card as ca
 import text as t
 import sound as s
 
+# สร้างเลเวลเกมถัดไป
 def next_level():
     bu.bullet_01_group.update()
     bu.bullet_02_group.update()
@@ -47,6 +48,7 @@ def next_level():
     e.enemy_group.update()
     b.clear_game = False
 
+# เริ่มเล่นเกม
 def start_game():
     s.main_sound()
     next_level()

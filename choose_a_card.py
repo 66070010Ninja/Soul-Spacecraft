@@ -8,6 +8,7 @@ import random
 import database as b
 import card as c
 
+# เลือกการ์ดแบบสุ่ม
 def choose_card():
     # ตัวแปรสำหรับเลือกลิสต์การ์ด
     current_card_list = c.card_list_1
@@ -21,10 +22,10 @@ def choose_card():
 
     # ...
     # สุ่มการ์ดเริ่มต้น
-    current_card = random.choices(images, weights=weights, k=1)[0]
-    current_card_name = [card[0] for card in current_card_list if card[1] == current_card][0]
-    current_card2 = random.choices(images, weights=weights, k=1)[0]  # สุ่ม current_card2 อิสระ
-    current_card2_name = [card[0] for card in current_card_list if card[1] == current_card2][0]
+    current_card = random.choices(images, weights=weights, k=1)[0] # สุ่ม ประเภทการ์ดใบที่ 1
+    current_card_name = [card[0] for card in current_card_list if card[1] == current_card][0] # การ์ดที่ได้
+    current_card2 = random.choices(images, weights=weights, k=1)[0]  # สุ่ม ประเภทการ์ดใบที่ 2
+    current_card2_name = [card[0] for card in current_card_list if card[1] == current_card2][0] # การ์ดที่ได้
 
     # ตัวแปรสำหรับติดตามการคลิก
     clicked_card1 = 0
@@ -39,8 +40,11 @@ def choose_card():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 b.exit_game = True
-            if event.type == pygame.MOUSEBUTTONDOWN and not (clicked_card1 == 2 and clicked_card2 == 2):
-                if x <= event.pos[0] <= x + current_card.get_width() and y <= event.pos[1] <= y + current_card.get_height() and not clicked_card1 == 2:
+
+            if event.type == pygame.MOUSEBUTTONDOWN and not (clicked_card1 == 2 and clicked_card2 == 2): # คลิกเปิดการ์ด
+
+                if x <= event.pos[0] <= x + current_card.get_width() and y <= event.pos[1] <= y + current_card.get_height() and not clicked_card1 == 2: # ตำแหน่งการ์ด
+                    # เช็คประเภทการ์ด
                     if current_card_name == "Card 1":
                         current_card_list = c.card_list_nomal
                     elif current_card_name == "Card 3":
@@ -48,12 +52,14 @@ def choose_card():
                     elif current_card_name == "Card 2":
                         current_card_list = c.card_list_bad
 
+                    # สุ่มการ์ดในประเภทการ์ดที่ได้
                     cards, images, weights = zip(*current_card_list)
                     current_card = random.choices(images, weights=weights, k=1)[0]
                     current_card_name = [card[0] for card in current_card_list if card[1] == current_card][0]
 
                     clicked_card1 += 1
 
+                    # เลือกการ์ดที่ต้องการจะใช้งาน
                     if clicked_card1 == 1:
                         set_card.insert(0, current_card_name)
                     elif clicked_card1 == 2 and len(set_card) == 2:
@@ -65,7 +71,8 @@ def choose_card():
                         c.usd_card()
                         return
 
-                if x2 <= event.pos[0] <= x2 + current_card2.get_width() and y2 <= event.pos[1] <= y2 + current_card2.get_height() and not clicked_card2 == 2:
+                if x2 <= event.pos[0] <= x2 + current_card2.get_width() and y2 <= event.pos[1] <= y2 + current_card2.get_height() and not clicked_card2 == 2: # ตำแหน่งการ์ด
+                    # เช็คประเภทการ์ด
                     if current_card2_name == "Card 1":
                         current_card_list = c.card_list_nomal
                     elif current_card2_name == "Card 3":
@@ -73,12 +80,14 @@ def choose_card():
                     elif current_card2_name == "Card 2":
                         current_card_list = c.card_list_bad
 
+                    # สุ่มการ์ดในประเภทการ์ดที่ได้
                     cards, images, weights = zip(*current_card_list)
                     current_card2 = random.choices(images, weights=weights, k=1)[0]  # สุ่ม current_card2 อิสระ
                     current_card2_name = [card[0] for card in current_card_list if card[1] == current_card2][0]
 
                     clicked_card2 += 1
 
+                    # เลือกการ์ดที่ต้องการจะใช้งาน
                     if clicked_card2 == 1:
                         set_card.insert(1, current_card2_name)
                     elif clicked_card2 == 2 and len(set_card) == 2:
