@@ -16,3 +16,5 @@ def main_sound():
         b.sound_title = True
     if b.new_game == False:
         pygame.mixer.stop()
+
+print(1)
