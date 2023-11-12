@@ -20,7 +20,7 @@ def main_sound():
         b.sound_game_play = False
         pygame.mixer.stop() # หยุดเสียง
 
-# เสียงในเกม
+# เสียงเจอบอส
 def boss_sound():
     if b.sound_game_play == True:
         pygame.mixer.stop()
@@ -29,7 +29,7 @@ def boss_sound():
         pygame.mixer.Sound.play(b.boss_sound) # เล่นเสียง
         b.sound_boss = True
 
-# เสียงเจอบอส
+# เสียงเกมหลัก
 def enemy_sound():
     if b.sound_boss == True:
         pygame.mixer.stop()

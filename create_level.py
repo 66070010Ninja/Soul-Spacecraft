@@ -60,25 +60,25 @@ def create_ennemys_boss(rows, cols, health):
 def turn_up():
     if b.turn_size_player != 0:
         b.turn_size_player -= 1
-        print(b.turn_size_player)
+        # print(b.turn_size_player)
     if b.turn_barrier != 0:
         b.turn_barrier -= 1
-        print(b.turn_barrier)
+        # print(b.turn_barrier)
     if b.turn_cool_down_atk != 0:
         b.turn_cool_down_atk -= 1
-        print(b.turn_cool_down_atk)
+        # print(b.turn_cool_down_atk)
     if b.turn_speed_move_up_enemy != 0:
         b.turn_speed_move_up_enemy -= 1
-        print(b.turn_speed_move_up_enemy)
+        # print(b.turn_speed_move_up_enemy)
     if b.turn_speed_move_down_enemy != 0:
         b.turn_speed_move_down_enemy -= 1
-        print(b.turn_speed_move_down_enemy)
+        # print(b.turn_speed_move_down_enemy)
     if b.turn_cool_up_enemy != 0:
         b.turn_cool_up_enemy -= 1
-        print(b.turn_cool_up_enemy)
+        # print(b.turn_cool_up_enemy)
     if b.turn_cool_down_enemy != 0:
         b.turn_cool_down_enemy -= 1
-        print(b.turn_cool_down_enemy)
+        # print(b.turn_cool_down_enemy)
     if b.turn_size_player == 0:
         b.size_player = 'normal'
     b.restore_blood += 15
