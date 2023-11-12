@@ -7,8 +7,10 @@ pygame.init()
 import database as b
 import button as bt
 import text as t
+import sound as s
 
 def gameover():
+    s.gameover_sound()
     gameover_running = True
     if b.score_game > b.height_score_game:
         b.height_score_game = b.score_game

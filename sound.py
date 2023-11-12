@@ -40,7 +40,10 @@ def enemy_sound():
 
 # เสียงจบเกม
 def gameover_sound():
-    if b.gameover_sound == True:
+    if b.sound_boss == True or b.sound_enemy == True:
         pygame.mixer.stop()
-    if b.gameover_sound == False:
+        b.sound_boss = False
+        b.sound_enemy = False
+    if b.sound_gameover == False:
         pygame.mixer.Sound.play(b.gameover_sound) # เล่นเสียง
+        b.sound_gameover = True

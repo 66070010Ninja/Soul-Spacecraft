@@ -100,7 +100,7 @@ player_y = 0
 main_sound = pygame.mixer.Sound("Sound/Game/main.mp3") # ใส่เสียง
 main_sound.set_volume(0.15) # ปรับเสียง
 
-boss_sound = pygame.mixer.Sound("Sound/Gmae/boss.mp3") # ใส่เสียง
+boss_sound = pygame.mixer.Sound("Sound/Game/boss.mp3") # ใส่เสียง
 boss_sound.set_volume(0.15) # ปรับเสียง
 
 enemy_sound = pygame.mixer.Sound("Sound/Game/enemy.mp3") # ใส่เสียง

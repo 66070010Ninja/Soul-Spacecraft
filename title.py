@@ -26,6 +26,7 @@ def title():
     b.title = False
     b.gameover = False
     if b.new_game == False:
+        b.sound_gameover = False
         b.new_game = True
         b.sound_title = False
     b.start = False
