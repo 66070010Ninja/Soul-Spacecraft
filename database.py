@@ -95,12 +95,6 @@ turn_size_player = 0
 turn_barrier = 0
 turn_cool_down_atk = 0
 
-# enemy
-turn_cool_up_enemy = 0
-turn_cool_down_enemy = 0
-turn_speed_move_up_enemy = 0
-turn_speed_move_down_enemy = 0
-
 # ตำแหน่ง player
 player_x = 0
 player_y = 0

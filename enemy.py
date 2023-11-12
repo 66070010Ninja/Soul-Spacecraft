@@ -17,8 +17,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
-        self.move_direction = 1*(1 + (b.turn_speed_move_up_enemy > 0))
-        self.move_direction /= 1 + (b.turn_cool_down_enemy > 0)
+        self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
         self.down = 10 * 1000
         self.health_start = health
@@ -66,8 +65,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
-        self.move_direction = 1*(1 + (b.turn_speed_move_up_enemy > 0))
-        self.move_direction /= 1 + (b.turn_cool_down_enemy > 0)
+        self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
         self.down = 10 * 1000
         self.health_start = health
@@ -92,7 +90,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         check_cooldown = time_now - self.last_shot > cooldown
         if check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
-            bullet = bu.Bullets_FireFly(self.rect.centerx, self.rect.bottom, 3*(1+(2*b.turn_cool_up_enemy > 0)))
+            bullet = bu.Bullets_FireFly(self.rect.centerx, self.rect.bottom, 3)
             bu.bullet_enemy_group.add(bullet)
             self.last_shot = time_now
 
@@ -127,8 +125,7 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         self.move_counter = 0
-        self.move_direction = 1*(1 + (b.turn_speed_move_up_enemy > 0))
-        self.move_direction /= 1 + (b.turn_cool_down_enemy > 0)
+        self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
         self.down = 10 * 1000
         self.health_start = health
@@ -153,7 +150,7 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
         check_cooldown = time_now - self.last_shot > cooldown
         if check_cooldown:
             # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
-            bullet = bu.Bullets_Flame_Boy(self.rect.centerx, self.rect.bottom, 3*(1+(2*b.turn_cool_up_enemy > 0)))
+            bullet = bu.Bullets_Flame_Boy(self.rect.centerx, self.rect.bottom, 3)
             bu.bullet_enemy_01_group.add(bullet)
             self.last_shot = time_now
 
@@ -189,8 +186,6 @@ class Main_Boss(pygame.sprite.Sprite):
         self.rect.center = [x, y]
         self.move_counter = 0
         self.move_direction = 1
-        self.last_time = pygame.time.get_ticks()
-        self.down = 10 * 1000
         self.health_start = health
         self.health_remaining = health
         self.last_shot = pygame.time.get_ticks()
@@ -213,34 +208,34 @@ class Main_Boss(pygame.sprite.Sprite):
             if pattern == 1:
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(80+(i*80), 0-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(80+(i*80), 0-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), 0-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), 0-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(80+(i*80), -920-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(80+(i*80), -920-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -920-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -920-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(80+(i*80), -1840-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(80+(i*80), -1840-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -1840-(i*115), 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_FireFly(b.SCREEN_W-80-(i*80), -1840-(i*115), 3)
                     bu.bullet_enemy_group.add(bullet)
                 self.second = 15
                 self.last_shot = time_now
             elif pattern == 2:
                 for i in range(0, 9):
-                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -80, 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -80, 3)
                     bu.bullet_enemy_01_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -640, 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -640, 3)
                     bu.bullet_enemy_01_group.add(bullet)
                 for i in range(0, 9):
-                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -1280, 3*(1+(2*b.turn_cool_up_enemy > 0)))
+                    bullet = bu.Bullets_Flame_Boy(80+(i*80), -1280, 3)
                     bu.bullet_enemy_01_group.add(bullet)
                 self.second = 8
                 self.last_shot = time_now
@@ -250,21 +245,21 @@ class Main_Boss(pygame.sprite.Sprite):
                     if i == num:
                         pass
                     else:
-                        bullet = bu.Bullets_Boss(80+(i*80), -80, 2*(1+(2*b.turn_cool_up_enemy > 0)))
+                        bullet = bu.Bullets_Boss(80+(i*80), -80, 2)
                         bu.bullet_boss_group.add(bullet)
                 num = random.randint(0, 8)
                 for i in range(0, 9):
                     if i == num:
                         pass
                     else:
-                        bullet = bu.Bullets_Boss(80+(i*80), -640, 2*(1+(2*b.turn_cool_up_enemy > 0)))
+                        bullet = bu.Bullets_Boss(80+(i*80), -640, 2)
                         bu.bullet_boss_group.add(bullet)
                 num = random.randint(0, 8)
                 for i in range(0, 9):
                     if i == num:
                         pass
                     else:
-                        bullet = bu.Bullets_Boss(80+(i*80), -1280, 2*(1+(2*b.turn_cool_up_enemy > 0)))
+                        bullet = bu.Bullets_Boss(80+(i*80), -1280, 2)
                         bu.bullet_boss_group.add(bullet)
                 self.second = 15
                 self.last_shot = time_now

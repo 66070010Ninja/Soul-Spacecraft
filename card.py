@@ -26,14 +26,10 @@ card_list_nomal = [
     ("BIGS", pygame.image.load("Image/Card png/BIGS.png"), 5),
     ("BR", pygame.image.load("Image/Card png/BR.png"), 1),
     ("BSPA", pygame.image.load("Image/Card png/BSPA.png"), 10),
-    ("BDS", pygame.image.load("Image/Card png/but down spd.png"), 8),
     ("DES", pygame.image.load("Image/Card png/DESTROY.png"), 0.01),
-    ("DS", pygame.image.load("Image/Card png/down spd.png"), 8),
     ("HB", pygame.image.load("Image/Card png/HB.png"), 5),
     ("L2", pygame.image.load("Image/Card png/L2.png"), 7.5),
     ("NO", pygame.image.load("Image/Card png/NO.png"), 15),
-    ("SUP", pygame.image.load("Image/Card png/SPD UP BUL.png"), 5),
-    ("SU", pygame.image.load("Image/Card png/SPD UP.png"), 5),
 ]
 
 # การ์ดโชคดี
@@ -42,9 +38,7 @@ card_list_luck = [
     ("sma", pygame.image.load("Image/Card png/sma.png"), 10),  # 25% ความถี่
     ("skip", pygame.image.load("Image/Card png/skip.png"), 15),  # 25% ความถี่
     ("BR", pygame.image.load("Image/Card png/BR.png"), 0.5),
-    ("DS", pygame.image.load("Image/Card png/down spd.png"), 10),
     ("L2", pygame.image.load("Image/Card png/L2.png"), 10),
-    ("BDS", pygame.image.load("Image/Card png/but down spd.png"), 10),
 ]
 
 # การ์ดโชคร้าย
@@ -52,8 +46,6 @@ card_list_bad = [
     ("BIGS", pygame.image.load("Image/Card png/BIGS.png"), 15),
     ("DES", pygame.image.load("Image/Card png/DESTROY.png"), 0.01),
     ("HB", pygame.image.load("Image/Card png/HB.png"), 20),
-    ("SUP", pygame.image.load("Image/Card png/SPD UP BUL.png"), 10),
-    ("SU", pygame.image.load("Image/Card png/SPD UP.png"), 10),
 ]
 
 # เช็คเงื่อนการ์ดที่เปิดได้
@@ -85,13 +77,5 @@ def usd_card():
         b.turn_cool_down_atk = 1
     elif b.use_card == 'NO':
         pass
-    elif b.use_card == 'SUP':
-        b.turn_cool_up_enemy = 2
-    elif b.use_card == 'BDS':
-        b.turn_cool_down_enemy = 2
-    elif b.use_card == 'SPD UP':
-        b.turn_speed_move_up_enemy = 2
     elif b.use_card == 'DES':
         b.restore_blood -= 500
-    elif b.use_card == 'DS':
-        b.turn_speed_move_down_enemy = 2
