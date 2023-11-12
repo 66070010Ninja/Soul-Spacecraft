@@ -34,9 +34,11 @@ def choose_card():
     running = True
     set_card = []
     while running:
+        if b.exit_game == True:
+            running = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                b.exit_game = True
             if event.type == pygame.MOUSEBUTTONDOWN and not (clicked_card1 == 2 and clicked_card2 == 2):
                 if x <= event.pos[0] <= x + current_card.get_width() and y <= event.pos[1] <= y + current_card.get_height() and not clicked_card1 == 2:
                     if current_card_name == "Card 1":
@@ -92,3 +94,4 @@ def choose_card():
         b.screen.blit(current_card, (x, y))
         b.screen.blit(current_card2, (x2, y2))
         pygame.display.update()
+    return

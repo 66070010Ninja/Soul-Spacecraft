@@ -14,6 +14,7 @@ import random
 import choose_a_card as ca
 import text as t
 import gameover as go
+import sound as s
 
 def next_level():
     if b.start == False:
@@ -48,8 +49,12 @@ def start_game():
     next_level()
     play_running = True
     while play_running == True:
+        s.main_sound()
         b.clock.tick(b.FPS)
-
+        if b.title == True:
+            return
+        if b.exit_game == True:
+            return
         # draw background
         b.draw_bg_game_play()
         t.draw_text()
@@ -69,8 +74,6 @@ def start_game():
             b.score_game += 100
             b.use_card = ca.choose_card()
             next_level()
-        if b.title == True:
-            return
 
         # update spaceship
         p.spaceship.update()
