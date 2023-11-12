@@ -105,6 +105,7 @@ class Spaceship(pygame.sprite.Sprite):
             for i in range(-1, 2, 1):
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ระยะการกระจาย, ความเร็วของกระสุน)
                 bullet = bu.Bullets_Ball(self.rect.centerx, self.rect.top, i, 4)
+                pygame.mixer.Sound.play(b.laser_type02_sound)
                 bu.bullet_02_group.add(bullet)
             self.last_shot = time_now
 

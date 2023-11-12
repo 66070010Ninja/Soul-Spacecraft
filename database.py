@@ -98,16 +98,19 @@ player_x = 0
 player_y = 0
 
 main_sound = pygame.mixer.Sound("Sound/Game/main.mp3") # ใส่เสียง
-main_sound.set_volume(0.15) # ปรับเสียง
+main_sound.set_volume(0.10) # ปรับเสียง
 
 boss_sound = pygame.mixer.Sound("Sound/Game/boss.mp3") # ใส่เสียง
-boss_sound.set_volume(0.15) # ปรับเสียง
+boss_sound.set_volume(0.10) # ปรับเสียง
 
 enemy_sound = pygame.mixer.Sound("Sound/Game/enemy.mp3") # ใส่เสียง
-enemy_sound.set_volume(0.15) # ปรับเสียง
+enemy_sound.set_volume(0.10) # ปรับเสียง
 
 gameover_sound = pygame.mixer.Sound("Sound/Game/gameover.wav") # ใส่เสียง
-gameover_sound.set_volume(0.15) # ปรับเสียง
+gameover_sound.set_volume(0.10) # ปรับเสียง
+
+laser_type02_sound = pygame.mixer.Sound("Sound/Laser/laser_gun_sound.mp3")
+laser_type02_sound.set_volume(0.02) # ปรับเสียง
 
 sound_title = False
 sound_enemy = False
