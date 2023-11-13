@@ -88,12 +88,12 @@ height_score_game = 0
 use_card = ''
 
 # player
-type_bullet = 1
-restore_blood = 0
+type_bullet = 1 # ประเภทของกระสุน
+restore_blood = 0 # การเติมเลือด
 size_player = 'normal'
-turn_size_player = 0
-turn_barrier = 0
-turn_cool_down_atk = 0
+turn_size_player = 0 # จำนวนเทิร์นที่โดนปรับขนาด
+turn_barrier = 0 # จำนวนเทิร์นที่ได้รับบัฟนี้
+turn_cool_down_atk = 0 # จำนวนเทิร์นที่ลดระยะเวลาการยิง
 
 # ตำแหน่ง player
 player_x = 0
@@ -129,7 +129,7 @@ laser_type03_sound.set_volume(0.02) # ปรับเสียง
 
 # สร้างเสียงกระสุนรูปแบบที่ 4
 laser_type04_sound = pygame.mixer.Sound("Sound/Laser/laser_type04.mp3") # ใส่เสียง
-laser_type04_sound.set_volume(0.02) # ปรับเสียง
+laser_type04_sound.set_volume(0.04) # ปรับเสียง
 
 # เช็คการใช้งานเสียง
 sound_title = False
