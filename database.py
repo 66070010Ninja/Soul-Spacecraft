@@ -34,8 +34,8 @@ gameover_img = pygame.image.load("Image/Game/Gameover.png") # ดึงภาพ
 gameover_img = pygame.transform.scale(gameover_img, (525, 112.5)) # ปรับขนาดของภาพ Gameover
 
 # สร้างภาพ game pause
-game_pause_img = pygame.image.load("Image/Game/Game Pause.png")
-game_pause_img = pygame.transform.scale(game_pause_img, (487, 316))
+game_pause_img = pygame.image.load("Image/Game/Game Pause.png") # ดึงภาพจาก Image มาใช้งาน
+game_pause_img = pygame.transform.scale(game_pause_img, (487, 316)) # ปรับขนาดของภาพ gamepause
 
 # แสดงพื้นหลัง
 def draw_bg_game_play():
