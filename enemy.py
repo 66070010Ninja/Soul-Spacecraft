@@ -42,6 +42,9 @@ class Enemys_Flameow(pygame.sprite.Sprite):
             b.enemy_game -= 1
             b.score_game += 10
             self.kill()
+        if self.rect.y >= b.SCREEN_H:
+            b.enemy_game -= 1
+            self.kill()
 
         # hit damage
         if pygame.sprite.spritecollide(self, bu.bullet_01_group, True):
@@ -98,9 +101,12 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom - 3), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
-        if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
+        if self.health_remaining <= 0:
             b.enemy_game -= 1
             b.score_game += 30
+            self.kill()
+        if self.rect.y >= b.SCREEN_H:
+            b.enemy_game -= 1
             self.kill()
 
         # hit damage
@@ -158,9 +164,12 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom - 3), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
-        if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
+        if self.health_remaining <= 0:
             b.enemy_game -= 1
             b.score_game += 50
+            self.kill()
+        if self.rect.y >= b.SCREEN_H:
+            b.enemy_game -= 1
             self.kill()
 
         # hit damage
@@ -190,7 +199,7 @@ class Main_Boss(pygame.sprite.Sprite):
         self.health_remaining = health
         self.last_shot = pygame.time.get_ticks()
         self.second = 3
-    
+
     def update(self):
         self.rect.x += self.move_direction
         self.move_counter += 1
@@ -268,7 +277,7 @@ class Main_Boss(pygame.sprite.Sprite):
         if self.health_remaining > 0:
             pygame.draw.rect(b.screen, b.RED, (self.rect.x, (self.rect.bottom - 3), self.rect.width, 10))
             pygame.draw.rect(b.screen, b.GREEN, (self.rect.x, (self.rect.bottom - 3), self.rect.width*(self.health_remaining/self.health_start), 10))
-        if self.health_remaining <= 0 or self.rect.y >= b.SCREEN_H:
+        if self.health_remaining <= 0:
             b.enemy_game -= 1
             b.score_game += 500
             b.damage_01 += 3
