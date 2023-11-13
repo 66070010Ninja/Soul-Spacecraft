@@ -66,7 +66,7 @@ clear_game = False
 
 # ดาเมจของกระสุนแต่ละประเภท
 damage_01 = 40
-damage_02 = 18
+damage_02 = 20
 damage_03 = 20
 damage_04 = 2
 
