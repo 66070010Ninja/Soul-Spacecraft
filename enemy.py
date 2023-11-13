@@ -19,7 +19,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
         self.move_counter = 0
         self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
-        self.down = 10 * 1000
+        self.down = 13 * 1000
         self.health_start = health
         self.health_remaining = health
 
@@ -70,7 +70,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
         self.move_counter = 0
         self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
-        self.down = 10 * 1000
+        self.down = 13 * 1000
         self.health_start = health
         self.health_remaining = health
         self.last_shot = pygame.time.get_ticks()
@@ -133,7 +133,7 @@ class Enemys_Flame_Boy(pygame.sprite.Sprite):
         self.move_counter = 0
         self.move_direction = 1
         self.last_time = pygame.time.get_ticks()
-        self.down = 10 * 1000
+        self.down = 13 * 1000
         self.health_start = health
         self.health_remaining = health
         self.last_shot = pygame.time.get_ticks()
@@ -280,10 +280,10 @@ class Main_Boss(pygame.sprite.Sprite):
         if self.health_remaining <= 0:
             b.enemy_game -= 1
             b.score_game += 500
-            b.damage_01 += 3
-            b.damage_02 += 2
-            b.damage_03 += 2
-            b.damage_04 += 0.5
+            b.damage_01 += 5
+            b.damage_02 += 2.5
+            b.damage_03 += 1.5
+            b.damage_04 += 0.75
             self.kill()
 
         # hit damage
