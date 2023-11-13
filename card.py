@@ -28,7 +28,7 @@ card_list_nomal = [
     ("BSPA", pygame.image.load("Image/Card png/BSPA.png"), 10),
     ("DES", pygame.image.load("Image/Card png/DESTROY.png"), 0.01),
     ("HB", pygame.image.load("Image/Card png/HB.png"), 5),
-    ("L2", pygame.image.load("Image/Card png/L2.png"), 7.5),
+    ("L2", pygame.image.load("Image/Card png/L2.png"), 5),
     ("NO", pygame.image.load("Image/Card png/NO.png"), 15),
 ]
 
@@ -38,7 +38,7 @@ card_list_luck = [
     ("sma", pygame.image.load("Image/Card png/sma.png"), 10),  # 25% ความถี่
     ("skip", pygame.image.load("Image/Card png/skip.png"), 15),  # 25% ความถี่
     ("BR", pygame.image.load("Image/Card png/BR.png"), 0.5),
-    ("L2", pygame.image.load("Image/Card png/L2.png"), 10),
+    ("L2", pygame.image.load("Image/Card png/L2.png"), 5),
 ]
 
 # การ์ดโชคร้าย
