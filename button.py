@@ -77,7 +77,7 @@ class Button_Title(pygame.sprite.Sprite):
             if pygame.mouse.get_pressed()[0] == 1:
                 b.title = True
 
-# เก็บกลุ่มของกระสุนที่ใช้ class button สร้าง
+# เก็บกลุ่มของปุ๋มที่ใช้ class button สร้าง
 button_start_group = pygame.sprite.Group()
 button_pause_group = pygame.sprite.Group()
 button_game_over_group = pygame.sprite.Group()
