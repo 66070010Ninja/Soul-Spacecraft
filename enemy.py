@@ -55,7 +55,7 @@ class Enemys_Flameow(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_03
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
-        
+
         if b.new_game == True:
             self.kill()
 
@@ -118,7 +118,7 @@ class Enemys_FireFly(pygame.sprite.Sprite):
             self.health_remaining -= b.damage_03
         if pygame.sprite.spritecollide(self, bu.bullet_04_group, False):
             self.health_remaining -= b.damage_04
-        
+
         if b.new_game == True:
             self.kill()
 
@@ -212,7 +212,7 @@ class Main_Boss(pygame.sprite.Sprite):
         cooldown = self.second*1000 # milliseconds
         time_now = pygame.time.get_ticks()
         check_cooldown = time_now - self.last_shot > cooldown
-        if check_cooldown:
+        if check_cooldown: # รูปแบบการโจมตี
             pattern =  random.randint(1, 3)
             if pattern == 1:
                 # ทำกระสุนกำหนดดังนี้ (ตำแหน่งเริ่มต้นของ x, ตำแหน่งเริ่มต้นของ y, ความเร็วของกระสุน)
