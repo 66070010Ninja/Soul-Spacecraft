@@ -34,7 +34,7 @@ def title():
     b.score_game = 0
     b.level_game = 1
     b.damage_01 = 40
-    b.damage_02 = 18
+    b.damage_02 = 20
     b.damage_03 = 20
     b.damage_04 = 2
 

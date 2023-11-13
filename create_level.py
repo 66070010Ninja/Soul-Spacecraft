@@ -19,9 +19,9 @@ def level_game():
     elif b.level_game <= 20:
         return 3, 7, 150
     elif b.level_game <= 30:
-        return 4, 7, 200
+        return 3, 7, 200
     else:
-        return 5, 7, ((b.level_game//10)*50)+100
+        return 4, 7, ((b.level_game//10)*50)+100
 
 # สร้างศัตรูรูปแบบที่ 1
 def create_enemys_01(rows, cols, health):
